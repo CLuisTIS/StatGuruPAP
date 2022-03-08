@@ -89,7 +89,7 @@ function fillUsers(){
         if(data){
             for(let i = 0; i< data.length; i++){
                 document.getElementById('listaUsers').innerHTML += `<tr> <td>${data[i].iduser}</td><td> ${data[i].username}</td> </tr>`
-                
+
             }
         }
         else location.replace("http://localhost:3000/");
@@ -102,10 +102,38 @@ function fillUsers(){
 
 function validaArtigo(){
         if(document.getElementById("title").value != "" && document.getElementById("title").value != null &&
-           document.getElementById("textArt").value != "" && document.getElementById("textArt").value)
+           document.getElementById("text").value != "" && document.getElementById("text").value)
            return true;
         else
             alert("Introduza os dados do artigo corretamente");
             return false;
     }
+
+async function articles(){
+    if(validaArtigo()){
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'authorization': localStorage.getItem("token")
+            },
+            body: JSON.stringify({
+                title: document.getElementById("title").value,
+                text: document.getElementById("text").value
+            })
+        }
+        await fetch('http://localhost:3000/api/admin/articles', options)
+        .then((res) =>{
+            if(res.status == 200){
+                document.getElementById("title").value = ""
+                document.getElementById("text").value = ""
+            }
+            else{
+                document.getElementById("title").value = ""
+                document.getElementById("text").value = ""
+            }
+    })
+    .catch((error) => console.log(error));
+    }
+}
 

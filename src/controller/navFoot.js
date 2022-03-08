@@ -125,6 +125,9 @@ function renderNavAdmin(){
                     <a class="nav-link fs-4" href="http://localhost:3000/">Home</a>
                     </li>
                     <li class="nav-item"  style="margin-right:10px">
+                    <a class="nav-link fs-4" href="http://localhost:3000/news">News</a>
+                    </li>
+                    <li class="nav-item"  style="margin-right:10px">
                     <a class="nav-link fs-4" href="http://localhost:3000/control">Control</a>
                     </li>
                     <li class="nav-item" style:" cursor: pointer" onclick="logout()">

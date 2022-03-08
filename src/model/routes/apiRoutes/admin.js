@@ -18,6 +18,7 @@ router.get('/admins', (req,res) => {
         }
      })
 });
+
 router.get('/users', (req,res) => {
     dbConnection.query(`SELECT iduser, username FROM user WHERE level = ?`,
     ["regular"],
@@ -28,6 +29,23 @@ router.get('/users', (req,res) => {
             res.status(200).json(result)
         }
      })
+});
+router.get('/articles', (req,res) => {
+    dbConnection.query(``)
+})
+
+//ARTIGOS - A FAZER
+router.post('/articles', (req,res)=>{
+    dbConnection.query("INSERT INTO articles (title, text) VALUES(?,?)",
+    [req.body.title, req.body.text],
+    (err,result)=>{
+        if(err){
+            console.log(err);
+            res.status(406).send("Erro na introdução")
+        }else{
+            res.status(200).send(result)
+        }
+    })
 });
 
 router.post('/admins', (req,res) => {
@@ -42,25 +60,23 @@ router.post('/admins', (req,res) => {
             [req.body.username,bcryptjs.hashSync(escape(req.body.password,bcryptjs.genSaltSync(2))),"admin"],
             (err,result)=>{
                 if(err){
-                    console.log(err);
-                    res.status(406).send("Erro na introdução");
-                }
-                else{
+                    console.log(err)
+                    res.status(406).send("Erro na introdução")
+                }else{
                       dbConnection.query(
                         'UPDATE user SET public_key = ?, private_key = ? WHERE iduser = ?',
                         [Math.random().toString(36).substring(2) + result.insertId, Math.random().toString(36).substring(2) + result.insertId, result.insertId],
                         (error,result)=>{
                           if (error) throw error
-                    });
+                    })
                 res.status(200).send()
-                };
-          });
+                }
+          })
         }
         else{
             res.status(406).send("Já existe uma conta com esse username!")
         }
     })
-
-})
+});
 
 module.exports = router;
