@@ -71,7 +71,7 @@
         <div id="navbar"></div>
        
             <p align="center">
-                <button class="btn-lg" type="button " id="btnNews" class="btn" style="color: #f55139;">Add new Article</button>
+                <button class="btn-lg" type="button " id="btnNews" class="btn" onclick="fillNews()" style="color: #f55139;">Add new Article</button>
                 
                 <button class="btn-lg" type="button" id="btnAcc" class="btn" onclick="fillAdmins()" style="color: #f55139;">Add new Admin Account</button>
 
@@ -120,6 +120,7 @@
                         </tbody>
                     </table>
                 </div>
+
             </div>
 
             
@@ -138,6 +139,18 @@
                     
                     <button class="btn-lg h5" type="button" id="btnNewArticle" class="btn" onclick="articles()" style="color: #f55139;">Send Article</button>
              
+                    <p class="text-center h5" scope="col" style="color: #f55139;">Articles List</p>
+
+                    <div class="table-responsive-md mx-auto mt-3">
+                        <table class="table text-center align-middle mt-2">
+                          
+    
+                            <tbody style="color: white;" id="listaArticles">
+                                
+                            
+                        </table>
+                    </div>
+
             </div>
 
 
