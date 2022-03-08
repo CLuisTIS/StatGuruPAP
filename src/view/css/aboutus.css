@@ -1,0 +1,40 @@
+html{
+    Overflow-y: auto
+}.card{
+    background-color: transparent !important;
+    background: transparent !important;
+} 
+div img{
+        width: 190px;
+    
+    }
+.footer{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    margin-top: 25px;
+}
+.text{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    color: white;
+}
+
+   
+    
+@media screen and (max-width: 700px){
+    html, body{
+        display: initial;
+        overflow: hidden;
+    }  .footer{
+        position: relative;
+        text-align: center;
+        align-content: center;
+        align-items: center;
+    }
+}
+
+

@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+    <head> 
+       
+        <meta charset="UTF-8">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+        <!-- Puxar as páginas de css -->
+
+        <link rel="stylesheet" type="text/css" href="http://localhost:3000/files/styles/index.css">
+
+        <link rel="stylesheet" type="text/css" href="http://localhost:3000/files/styles/particles.css">
+        
+        <link rel="stylesheet" type="text/css" href="http://localhost:3000/files/styles/footer.css">
+
+
+
+        <script src="http://localhost:3000/files/controllers/home.js"></script>
+
+        <script src="http://localhost:3000/files/controllers/particles.js"></script>
+        
+        <script src="http://localhost:3000/files/controllers/navFoot.js"></script>
+
+        <title>StatGuru</title>
+
+    </head>
+
+    <body onload="renderNavFoot(); renderStat(); renderFooter();">
+        <!-- Adicionado o background com a animação-->
+        <section id="particles-js"></section>
+          <!-- Adicionar a navbar-->
+          <div id="navbar"></div>
+
+ 
+
+          <div class="container-fluid" style="margin-top: -35px;">
+            <div class="justify-content-center">
+                <div class="nav nav-tabs justify-content-left" id="nav-tab" role="tablist" >
+                <button style="color: #f55139; " class="nav-link active col-6 fs-5" id="livescore" data-bs-toggle="tab" data-bs-target="#live" type="button" role="tab" aria-controls="live" aria-selected="true">LIVE SCORES</button>
+                <div id="stats"style="margin-left:400px" >
+                <button style="color: #f55139;" class="nav-link col-6 fs-5" id="statistics"  data-bs-toggle="tab" data-bs-target="#stat" type="button" role="tab" aria-controls="stat" aria-selected="false">STATISTICS</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="nav-tabContent">
+
+            <div class="tab-pane fade show active" id="live" role="tabpanel" aria-labelledby="livescore">
+
+                <div class="container-fluid" >
+
+                  <div id="DOM_element_id_in_your_website_1646662004819"></div>
+
+                  <script>
+                    (function(b, s, p, o, r, t) {
+                      b["broadage"] = b["broadage"] || [];
+                      if (!b["broadage"].length) {
+                        r = document.createElement(s);
+                        t = document.getElementsByTagName(s)[0];
+                        r.async = true;
+                        r.src = p;
+                        t.parentNode.insertBefore(r, t);
+                      }
+                      b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                    })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                      "bundleId": ["all-ls"],
+                      "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                      "widgets": {
+                        "liveScore": [{
+                          "element": "DOM_element_id_in_your_website_1646662004819",
+                          "coverageId": "6bf0cf44-e13a-44e1-8008-ff17ba6c2128",
+                          "options": {
+                            "theme": "darknessBlue",
+                            "sportFilter": false,
+                            "scoreBackground": "fill",
+                            "sportId": 1
+                          }
+                        }]
+                      }
+                    });
+                  </script>
+
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="stat" role="tabpanel" aria-labelledby="statistics">
+                
+              
+
+                <div class="container-fluid" >
+                  <nav class="justify-content-center" style="background-color:transparent">
+                      <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+                      <button style="color: #f55139;" class="nav-link active" id="ligaIng" data-bs-toggle="tab" data-bs-target="#ing" type="button" role="tab" aria-controls="ing" aria-selected="true">Premier League</button>
+                      <button style="color: #f55139;" class="nav-link" id="ligaEsp" data-bs-toggle="tab" data-bs-target="#esp" type="button" role="tab" aria-controls="esp" aria-selected="false">La Liga</button>
+                      <button style="color: #f55139;" class="nav-link" id="ligaIta" data-bs-toggle="tab" data-bs-target="#ita" type="button" role="tab" aria-controls="ita" aria-selected="false">Serie A</button>
+                      <button style="color: #f55139;" class="nav-link" id="ligaAle" data-bs-toggle="tab" data-bs-target="#ale" type="button" role="tab" aria-controls="ale" aria-selected="false">Bundesliga</button>
+                      <button style="color: #f55139;" class="nav-link" id="ligaFra" data-bs-toggle="tab" data-bs-target="#fra" type="button" role="tab" aria-controls="fra" aria-selected="false">Ligue 1</button>
+                      <button style="color: #f55139;" class="nav-link" id="ligaPrt" data-bs-toggle="tab" data-bs-target="#prt" type="button" role="tab" aria-controls="prt" aria-selected="false">Liga Nos</button>
+                      </div>
+                  </nav>
+                </div>
+    
+              <div class="tab-content" id="nav-tabContent">
+      
+                  <div class="tab-pane fade show active" id="ing" role="tabpanel" aria-labelledby="ligaIng">
+
+                    <div class="container-fluid" >
+                      <nav class="justify-content-center" style="background-color:transparent">
+                          <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist" >
+                          <button style="color: #f55139;" class="nav-link active" id="standings1" data-bs-toggle="tab" data-bs-target="#stands1" type="button" role="tab" aria-controls="stands1" aria-selected="true">Standings</button>
+                          <button style="color: #f55139;" class="nav-link" id="fixtures1" data-bs-toggle="tab" data-bs-target="#fixt1" type="button" role="tab" aria-controls="fixt1" aria-selected="false">Fixtures and Results</button>
+                          <button style="color: #f55139;" class="nav-link" id="goals1" data-bs-toggle="tab" data-bs-target="#goalscorer1" type="button" role="tab" aria-controls="goalscorer1" aria-selected="false">Best Goal Scorers</button>
+                          <button style="color: #f55139;" class="nav-link" id="assits1" data-bs-toggle="tab" data-bs-target="#assitmaker1" type="button" role="tab" aria-controls="assitmaker1" aria-selected="false">Best Assist Makers</button>
+                          <button style="color: #f55139;" class="nav-link" id="cards1" data-bs-toggle="tab" data-bs-target="#redyellow1" type="button" role="tab" aria-controls="redyellow1" aria-selected="false">Red and Yellow Cards</button>
+                          </div>
+                      </nav>
+                    </div>
+            
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="stands1" role="tabpanel" aria-labelledby="standings1">
+            
+                                <div class="container-fluid" >
+                             
+                                  <div id="Classificacao"></div>
+
+                                  <script>
+                                    (function(b, s, p, o, r, t) {
+                                      b["broadage"] = b["broadage"] || [];
+                                      if (!b["broadage"].length) {
+                                        r = document.createElement(s);
+                                        t = document.getElementsByTagName(s)[0];
+                                        r.async = true;
+                                        r.src = p;
+                                        t.parentNode.insertBefore(r, t);
+                                      }
+                                      b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                    })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                      "bundleId": ["soccer-st"],
+                                      "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                      "widgets": {
+                                        "soccerStandings": [{
+                                          "element": "Classificacao",
+                                          "tournamentId": 2,
+                                          "options": {
+                                            "theme": "darknessBlue"
+                                          }
+                                        }]
+                                      }
+                                    });
+                                  </script>
+            
+                                            
+            
+                                </div>
+            
+                            </div>
+            
+                            <div class="tab-pane fade" id="fixt1" role="tabpanel" aria-labelledby="fixtures1">
+                                
+                                <div class="container-fluid" >
+                                  <div id="JogosResultados"></div>
+
+                                  <script>
+                                    (function(b, s, p, o, r, t) {
+                                      b["broadage"] = b["broadage"] || [];
+                                      if (!b["broadage"].length) {
+                                        r = document.createElement(s);
+                                        t = document.getElementsByTagName(s)[0];
+                                        r.async = true;
+                                        r.src = p;
+                                        t.parentNode.insertBefore(r, t);
+                                      }
+                                      b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                    })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                      "bundleId": ["soccer-fx"],
+                                      "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                      "widgets": {
+                                        "soccerFixture": [{
+                                          "element": "JogosResultados",
+                                          "tournamentId": 2,
+                                          "options": {
+                                            "theme": "darknessBlue",
+                                            "tournamentInfo": "none"
+                                          }
+                                        }]
+                                      }
+                                    });
+                                  </script>
+            
+                                   
+            
+                                </div>
+                                
+                            </div>
+            
+                            <div class="tab-pane fade" id="goalscorer1" role="tabpanel" aria-labelledby="goals1">
+                                
+                                <div class="container-fluid" >
+                        
+                                  <div id="Goleadores"></div>
+
+                                  <script>
+                                    (function(b, s, p, o, r, t) {
+                                      b["broadage"] = b["broadage"] || [];
+                                      if (!b["broadage"].length) {
+                                        r = document.createElement(s);
+                                        t = document.getElementsByTagName(s)[0];
+                                        r.async = true;
+                                        r.src = p;
+                                        t.parentNode.insertBefore(r, t);
+                                      }
+                                      b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                    })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                      "bundleId": ["soccer-lbg"],
+                                      "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                      "widgets": {
+                                        "soccerLeaderboardGoals": [{
+                                          "element": "Goleadores",
+                                          "tournamentId": 2,
+                                          "options": {
+                                            "theme": "darknessBlue",
+                                            "tournamentInfo": "none"
+                                          }
+                                        }]
+                                      }
+                                    });
+                                  </script>
+                              
+                                </div>
+                              
+                            </div>
+            
+                            <div class="tab-pane fade" id="assitmaker1" role="tabpanel" aria-labelledby="assits1">
+                                
+                                <div class="container-fluid" >
+                        
+                                  <div id="Assistencias"></div>
+
+                                    <script>
+                                      (function(b, s, p, o, r, t) {
+                                        b["broadage"] = b["broadage"] || [];
+                                        if (!b["broadage"].length) {
+                                          r = document.createElement(s);
+                                          t = document.getElementsByTagName(s)[0];
+                                          r.async = true;
+                                          r.src = p;
+                                          t.parentNode.insertBefore(r, t);
+                                        }
+                                        b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                      })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                        "bundleId": ["soccer-lba"],
+                                        "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                        "widgets": {
+                                          "soccerLeaderboardAssists": [{
+                                            "element": "Assistencias",
+                                            "tournamentId": 2,
+                                            "options": {
+                                              "theme": "darknessBlue",
+                                              "tournamentInfo": "none"
+                                            }
+                                          }]
+                                        }
+                                      });
+                                    </script>
+            
+                                    
+                                </div>
+            
+                            </div>
+            
+                            <div class="tab-pane fade" id="redyellow1" role="tabpanel" aria-labelledby="cards1">
+                                
+                                <div class="container-fluid" >
+                    
+                                  <div id="Cartoes"></div>
+
+                                  <script>
+                                    (function(b, s, p, o, r, t) {
+                                      b["broadage"] = b["broadage"] || [];
+                                      if (!b["broadage"].length) {
+                                        r = document.createElement(s);
+                                        t = document.getElementsByTagName(s)[0];
+                                        r.async = true;
+                                        r.src = p;
+                                        t.parentNode.insertBefore(r, t);
+                                      }
+                                      b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                    })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                      "bundleId": ["soccer-lbc"],
+                                      "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                      "widgets": {
+                                        "soccerLeaderboardCards": [{
+                                          "element": "Cartoes",
+                                          "tournamentId": 2,
+                                          "options": {
+                                            "theme": "darknessBlue",
+                                            "tournamentInfo": "none"
+                                          }
+                                        }]
+                                      }
+                                    });
+                                  </script>
+            
+                                   
+            
+                                </div>
+                            
+                            </div>
+            
+                        </div>
+                      
+                  </div>
+
+                  <!-- LIGA ESPANHOLA -->
+                  <div class="tab-pane fade" id="esp" role="tabpanel" aria-labelledby="ligaEsp">
+                      
+                    <div class="container-fluid">
+                      <nav class="justify-content-center" style="background-color:transparent">
+                          <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist" >
+                          <button style="color: #f55139;" class="nav-link active" id="standings2" data-bs-toggle="tab" data-bs-target="#stands2" type="button" role="tab" aria-controls="stands2" aria-selected="true">Standings</button>
+                          <button style="color: #f55139;" class="nav-link" id="fixtures2" data-bs-toggle="tab" data-bs-target="#fixt2" type="button" role="tab" aria-controls="fixt2" aria-selected="false">Fixtures and Results</button>
+                          <button style="color: #f55139;" class="nav-link" id="goals2" data-bs-toggle="tab" data-bs-target="#goalscorer2" type="button" role="tab" aria-controls="goalscorer2" aria-selected="false">Best Goal Scorers</button>
+                          <button style="color: #f55139;" class="nav-link" id="assits2" data-bs-toggle="tab" data-bs-target="#assitmaker2" type="button" role="tab" aria-controls="assitmaker2" aria-selected="false">Best Assist Makers</button>
+                          <button style="color: #f55139;" class="nav-link" id="cards2" data-bs-toggle="tab" data-bs-target="#redyellow2" type="button" role="tab" aria-controls="redyellow2" aria-selected="false">Red and Yellow Cards</button>
+                          </div>
+                      </nav>
+                    </div>        
+                     
+                      <div class="tab-content" id="nav-tabContent">
+                          <div class="tab-pane fade show active" id="stands2" role="tabpanel" aria-labelledby="standings2">
+          
+                              <div class="container-fluid" >
+                      
+          
+                                <div id="Classificacao2"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-st"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerStandings": [{
+                                        "element": "Classificacao2",
+                                        "tournamentId": 7,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+                              </div>
+          
+                          </div>
+          
+                          <div class="tab-pane fade" id="fixt2" role="tabpanel" aria-labelledby="fixtures2">
+                              
+                              <div class="container-fluid" >
+                                  
+          
+                                <div id="JogosResultados2"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-fx"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerFixture": [{
+                                        "element": "JogosResultados2",
+                                        "tournamentId": 7,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+                               
+          
+                              </div>
+                              
+                          </div>
+          
+                          <div class="tab-pane fade" id="goalscorer2" role="tabpanel" aria-labelledby="goals2">
+                              
+                              <div class="container-fluid" >
+                      
+          
+                                <div id="Goleadores2"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-lbg"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerLeaderboardGoals": [{
+                                        "element": "Goleadores2",
+                                        "tournamentId": 7,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+          
+                              </div>
+          
+                          </div>
+          
+                          <div class="tab-pane fade" id="assitmaker2" role="tabpanel" aria-labelledby="assits2">
+                              
+                              <div class="container-fluid" >
+                      
+          
+                                <div id="Assistencias2"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-lba"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerLeaderboardAssists": [{
+                                        "element": "Assistencias2",
+                                        "tournamentId": 7,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+                                
+                              </div>
+                              
+                          </div>
+          
+                          <div class="tab-pane fade" id="redyellow2" role="tabpanel" aria-labelledby="cards2">
+                              
+                              <div class="container-fluid" >
+                      
+                                <div id="Cartoes2"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-lbc"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerLeaderboardCards": [{
+                                        "element": "Cartoes2",
+                                        "tournamentId": 7,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+                               
+          
+                              </div>
+                              
+                          </div>
+                      </div>
+
+                  </div>
+      
+                  <div class="tab-pane fade" id="ita" role="tabpanel" aria-labelledby="ligaIta">
+                      
+                    <div class="container-fluid">
+                      <nav class="justify-content-center" style="background-color:transparent">
+                          <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist" >
+                          <button style="color: #f55139;" class="nav-link active" id="standings3" data-bs-toggle="tab" data-bs-target="#stands3" type="button" role="tab" aria-controls="stands3" aria-selected="true">Standings</button>
+                          <button style="color: #f55139;" class="nav-link" id="fixtures3" data-bs-toggle="tab" data-bs-target="#fixt3" type="button" role="tab" aria-controls="fixt3" aria-selected="false">Fixtures and Results</button>
+                          <button style="color: #f55139;" class="nav-link" id="goals3" data-bs-toggle="tab" data-bs-target="#goalscorer3" type="button" role="tab" aria-controls="goalscorer3" aria-selected="false">Best Goal Scorers</button>
+                          <button style="color: #f55139;" class="nav-link" id="assits3" data-bs-toggle="tab" data-bs-target="#assitmaker3" type="button" role="tab" aria-controls="assitmaker3" aria-selected="false">Best Assist Makers</button>
+                          <button style="color: #f55139;" class="nav-link" id="cards3" data-bs-toggle="tab" data-bs-target="#redyellow3" type="button" role="tab" aria-controls="redyellow3" aria-selected="false">Red and Yellow Cards</button>
+                          </div>
+                      </nav>
+                    </div>        
+                     
+                      <div class="tab-content" id="nav-tabContent">
+                          <div class="tab-pane fade show active" id="stands3" role="tabpanel" aria-labelledby="standings3">
+          
+                              <div class="container-fluid" >
+                      
+          
+                                <div id="Classificacao3"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-st"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerStandings": [{
+                                        "element": "Classificacao3",
+                                        "tournamentId": 6,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+          
+                              </div>
+          
+                          </div>
+          
+                          <div class="tab-pane fade" id="fixt3" role="tabpanel" aria-labelledby="fixtures3">
+                              
+                              <div class="container-fluid" >
+                                  
+          
+                                <div id="JogosResultados3"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-fx"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerFixture": [{
+                                        "element": "JogosResultados3",
+                                        "tournamentId": 6,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+          
+                              </div>
+                              
+                          </div>
+          
+                          <div class="tab-pane fade" id="goalscorer3" role="tabpanel" aria-labelledby="goals3">
+                              
+                              <div class="container-fluid" >
+                      
+          
+                                <div id="Goleadores3"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-lbg"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerLeaderboardGoals": [{
+                                        "element": "Goleadores3",
+                                        "tournamentId": 6,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+                              </div>
+          
+                          </div>
+          
+                          <div class="tab-pane fade" id="assitmaker3" role="tabpanel" aria-labelledby="assits3">
+                              
+                              <div class="container-fluid" >
+                      
+          
+                                <div id="Assistencias3"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-lba"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerLeaderboardAssists": [{
+                                        "element": "Assistencias3",
+                                        "tournamentId": 6,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+                               
+                              </div>
+                              
+                          </div>
+          
+                          <div class="tab-pane fade" id="redyellow3" role="tabpanel" aria-labelledby="cards3">
+                              
+                              <div class="container-fluid" >
+                      
+                                <div id="Cartoes3"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-lbc"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerLeaderboardCards": [{
+                                        "element": "Cartoes3",
+                                        "tournamentId": 6,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+                              
+                              </div>
+                              
+                          </div>
+                      </div>
+                      
+                  </div>
+      
+                  <div class="tab-pane fade" id="ale" role="tabpanel" aria-labelledby="ligaAle">
+                      
+                    <div class="container-fluid">
+                      <nav class="justify-content-center" style="background-color:transparent">
+                          <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist" >
+                          <button style="color: #f55139;" class="nav-link active" id="standings4" data-bs-toggle="tab" data-bs-target="#stands4" type="button" role="tab" aria-controls="stands4" aria-selected="true">Standings</button>
+                          <button style="color: #f55139;" class="nav-link" id="fixtures4" data-bs-toggle="tab" data-bs-target="#fixt4" type="button" role="tab" aria-controls="fixt4" aria-selected="false">Fixtures and Results</button>
+                          <button style="color: #f55139;" class="nav-link" id="goals4" data-bs-toggle="tab" data-bs-target="#goalscorer4" type="button" role="tab" aria-controls="goalscorer4" aria-selected="false">Best Goal Scorers</button>
+                          <button style="color: #f55139;" class="nav-link" id="assits4" data-bs-toggle="tab" data-bs-target="#assitmaker4" type="button" role="tab" aria-controls="assitmaker4" aria-selected="false">Best Assist Makers</button>
+                          <button style="color: #f55139;" class="nav-link" id="cards4" data-bs-toggle="tab" data-bs-target="#redyellow4" type="button" role="tab" aria-controls="redyellow4" aria-selected="false">Red and Yellow Cards</button>
+                          </div>
+                      </nav>
+                  </div>
+          
+                  <div class="tab-content" id="nav-tabContent">
+          
+                      <div class="tab-pane fade show active" id="stands4" role="tabpanel" aria-labelledby="standings4">
+          
+                          <div class="container-fluid" >
+          
+                            <div id="Classificacao4"></div>
+
+                            <script>
+                              (function(b, s, p, o, r, t) {
+                                b["broadage"] = b["broadage"] || [];
+                                if (!b["broadage"].length) {
+                                  r = document.createElement(s);
+                                  t = document.getElementsByTagName(s)[0];
+                                  r.async = true;
+                                  r.src = p;
+                                  t.parentNode.insertBefore(r, t);
+                                }
+                                b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                              })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                "bundleId": ["soccer-st"],
+                                "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                "widgets": {
+                                  "soccerStandings": [{
+                                    "element": "Classificacao4",
+                                    "tournamentId": 5,
+                                    "options": {
+                                      "theme": "darknessBlue",
+                                      "tournamentInfo": "none"
+                                    }
+                                  }]
+                                }
+                              });
+                            </script>
+
+          
+                          </div>
+                      </div>
+          
+                      <div class="tab-pane fade" id="fixt4" role="tabpanel" aria-labelledby="fixtures4">
+                          
+                          <div class="container-fluid" >
+          
+                            <div id="JogosResultados4"></div>
+
+                            <script>
+                              (function(b, s, p, o, r, t) {
+                                b["broadage"] = b["broadage"] || [];
+                                if (!b["broadage"].length) {
+                                  r = document.createElement(s);
+                                  t = document.getElementsByTagName(s)[0];
+                                  r.async = true;
+                                  r.src = p;
+                                  t.parentNode.insertBefore(r, t);
+                                }
+                                b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                              })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                "bundleId": ["soccer-fx"],
+                                "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                "widgets": {
+                                  "soccerFixture": [{
+                                    "element": "JogosResultados4",
+                                    "tournamentId": 5,
+                                    "options": {
+                                      "theme": "darknessBlue",
+                                      "tournamentInfo": "none"
+                                    }
+                                  }]
+                                }
+                              });
+                            </script>
+
+                       
+                          </div>
+                      </div>
+          
+                      <div class="tab-pane fade" id="goalscorer4" role="tabpanel" aria-labelledby="goals4">
+                          
+                          <div class="container-fluid" >
+                  
+                            <div id="Goleadores4"></div>
+
+                            <script>
+                              (function(b, s, p, o, r, t) {
+                                b["broadage"] = b["broadage"] || [];
+                                if (!b["broadage"].length) {
+                                  r = document.createElement(s);
+                                  t = document.getElementsByTagName(s)[0];
+                                  r.async = true;
+                                  r.src = p;
+                                  t.parentNode.insertBefore(r, t);
+                                }
+                                b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                              })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                "bundleId": ["soccer-lbg"],
+                                "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                "widgets": {
+                                  "soccerLeaderboardGoals": [{
+                                    "element": "Goleadores4",
+                                    "tournamentId": 5,
+                                    "options": {
+                                      "theme": "darknessBlue",
+                                      "tournamentInfo": "none"
+                                    }
+                                  }]
+                                }
+                              });
+                            </script>
+
+                           
+                          </div>
+                          
+                      </div>
+          
+                      <div class="tab-pane fade" id="assitmaker4" role="tabpanel" aria-labelledby="assits4">
+                          
+                          <div class="container-fluid" >
+              
+                            <div id="Assistencias4"></div>
+
+                            <script>
+                              (function(b, s, p, o, r, t) {
+                                b["broadage"] = b["broadage"] || [];
+                                if (!b["broadage"].length) {
+                                  r = document.createElement(s);
+                                  t = document.getElementsByTagName(s)[0];
+                                  r.async = true;
+                                  r.src = p;
+                                  t.parentNode.insertBefore(r, t);
+                                }
+                                b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                              })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                "bundleId": ["soccer-lba"],
+                                "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                "widgets": {
+                                  "soccerLeaderboardAssists": [{
+                                    "element": "Assistencias4",
+                                    "tournamentId": 5,
+                                    "options": {
+                                      "theme": "darknessBlue",
+                                      "tournamentInfo": "none"
+                                    }
+                                  }]
+                                }
+                              });
+                            </script>
+
+                            
+                          </div> 
+                      </div>
+          
+                      <div class="tab-pane fade" id="redyellow4" role="tabpanel" aria-labelledby="cards4">
+                          
+                          <div class="container-fluid" >
+                      
+                            <div id="Cartoes4"></div>
+
+                            <script>
+                              (function(b, s, p, o, r, t) {
+                                b["broadage"] = b["broadage"] || [];
+                                if (!b["broadage"].length) {
+                                  r = document.createElement(s);
+                                  t = document.getElementsByTagName(s)[0];
+                                  r.async = true;
+                                  r.src = p;
+                                  t.parentNode.insertBefore(r, t);
+                                }
+                                b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                              })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                "bundleId": ["soccer-lbc"],
+                                "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                "widgets": {
+                                  "soccerLeaderboardCards": [{
+                                    "element": "Cartoes4",
+                                    "tournamentId": 5,
+                                    "options": {
+                                      "theme": "darknessBlue",
+                                      "tournamentInfo": "none"
+                                    }
+                                  }]
+                                }
+                              });
+                            </script>
+
+                          </div>
+                      </div>
+                      
+                  </div>
+                      
+                  </div>
+      
+                  <div class="tab-pane fade" id="fra" role="tabpanel" aria-labelledby="ligaFra">
+                      
+                    <div class="container-fluid">
+                      <nav class="justify-content-center" style="background-color:transparent">
+                          <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist" >
+                          <button style="color: #f55139;" class="nav-link active" id="standings5" data-bs-toggle="tab" data-bs-target="#stands5" type="button" role="tab" aria-controls="stands5" aria-selected="true">Standings</button>
+                          <button style="color: #f55139;" class="nav-link" id="fixtures5" data-bs-toggle="tab" data-bs-target="#fixt5" type="button" role="tab" aria-controls="fixt5" aria-selected="false">Fixtures and Results</button>
+                          <button style="color: #f55139;" class="nav-link" id="goals5" data-bs-toggle="tab" data-bs-target="#goalscorer5" type="button" role="tab" aria-controls="goalscorer5" aria-selected="false">Best Goal Scorers</button>
+                          <button style="color: #f55139;" class="nav-link" id="assits5" data-bs-toggle="tab" data-bs-target="#assitmaker5" type="button" role="tab" aria-controls="assitmaker5" aria-selected="false">Best Assist Makers</button>
+                          <button style="color: #f55139;" class="nav-link" id="cards5" data-bs-toggle="tab" data-bs-target="#redyellow5" type="button" role="tab" aria-controls="redyellow5" aria-selected="false">Red and Yellow Cards</button>
+                          </div>
+                      </nav>
+                    </div>        
+                     
+                      <div class="tab-content" id="nav-tabContent">
+                          <div class="tab-pane fade show active" id="stands5" role="tabpanel" aria-labelledby="standings5">
+          
+                              <div class="container-fluid" >
+                      
+          
+                                <div id="Classificacao5"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-st"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerStandings": [{
+                                        "element": "Classificacao5",
+                                        "tournamentId": 8,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+                               
+          
+                              </div>
+          
+                          </div>
+          
+                          <div class="tab-pane fade" id="fixt5" role="tabpanel" aria-labelledby="fixtures5">
+                              
+                              <div class="container-fluid" >
+                                  
+          
+                                <div id="JogosResultados5"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-fx"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerFixture": [{
+                                        "element": "JogosResultados5",
+                                        "tournamentId": 8,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+                              </div>
+                              
+                          </div>
+          
+                          <div class="tab-pane fade" id="goalscorer5" role="tabpanel" aria-labelledby="goals5">
+                              
+                              <div class="container-fluid" >
+                      
+          
+                                <div id="Goleadores5"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-lbg"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerLeaderboardGoals": [{
+                                        "element": "Goleadores5",
+                                        "tournamentId": 8,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+                               
+                              </div>
+          
+                          </div>
+          
+                          <div class="tab-pane fade" id="assitmaker5" role="tabpanel" aria-labelledby="assits5">
+                              
+                              <div class="container-fluid" >
+                      
+          
+                                <div id="Assistencias5"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-lba"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerLeaderboardAssists": [{
+                                        "element": "Assistencias5",
+                                        "tournamentId": 8,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+                              </div>
+                              
+                          </div>
+          
+                          <div class="tab-pane fade" id="redyellow5" role="tabpanel" aria-labelledby="cards5">
+                              
+                              <div class="container-fluid" >
+                      
+                                <div id="Cartoes5"></div><div id="Cartoes5"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-lbc"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerLeaderboardCards": [{
+                                        "element": "Cartoes5",
+                                        "tournamentId": 8,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+          
+                              </div>
+                              
+                          </div>
+                      </div>
+                    
+                  </div>
+
+                  <div class="tab-pane fade" id="prt" role="tabpanel" aria-labelledby="ligaPrt">
+                      
+                    <div class="container-fluid">
+                      <nav class="justify-content-center" style="background-color:transparent">
+                          <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist" >
+                          <button style="color: #f55139;" class="nav-link active" id="standings6" data-bs-toggle="tab" data-bs-target="#stands6" type="button" role="tab" aria-controls="stands6" aria-selected="true">Standings</button>
+                          <button style="color: #f55139;" class="nav-link" id="fixtures6" data-bs-toggle="tab" data-bs-target="#fixt6" type="button" role="tab" aria-controls="fixt6" aria-selected="false">Fixtures and Results</button>
+                          <button style="color: #f55139;" class="nav-link" id="goals6" data-bs-toggle="tab" data-bs-target="#goalscorer6" type="button" role="tab" aria-controls="goalscorer6" aria-selected="false">Best Goal Scorers</button>
+                          <button style="color: #f55139;" class="nav-link" id="assits6" data-bs-toggle="tab" data-bs-target="#assitmaker6" type="button" role="tab" aria-controls="assitmaker6" aria-selected="false">Best Assist Makers</button>
+                          <button style="color: #f55139;" class="nav-link" id="cards6" data-bs-toggle="tab" data-bs-target="#redyellow6" type="button" role="tab" aria-controls="redyellow6" aria-selected="false">Red and Yellow Cards</button>
+                          </div>
+                      </nav>
+                    </div>        
+                     
+                      <div class="tab-content" id="nav-tabContent">
+                          <div class="tab-pane fade show active" id="stands6" role="tabpanel" aria-labelledby="standings6">
+          
+                              <div class="container-fluid" >
+                      
+          
+                                <div id="Classificacao6"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-st"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerStandings": [{
+                                        "element": "Classificacao6",
+                                        "tournamentId": 22,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+                              </div>
+          
+                          </div>
+          
+                          <div class="tab-pane fade" id="fixt6" role="tabpanel" aria-labelledby="fixtures6">
+                              
+                              <div class="container-fluid" >
+                                  
+          
+                                <div id="JogosResultados6"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-fx"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerFixture": [{
+                                        "element": "JogosResultados6",
+                                        "tournamentId": 22,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+                              </div>
+                              
+                          </div>
+          
+                          <div class="tab-pane fade" id="goalscorer6" role="tabpanel" aria-labelledby="goals6">
+                              
+                              <div class="container-fluid" >
+                      
+          
+                                <div id="Goleadores6"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-lbg"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerLeaderboardGoals": [{
+                                        "element": "Goleadores6",
+                                        "tournamentId": 22,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+                              </div>
+          
+                          </div>
+          
+                          <div class="tab-pane fade" id="assitmaker6" role="tabpanel" aria-labelledby="assits6">
+                              
+                              <div class="container-fluid" >
+                      
+          
+                                <div id="Assistencias6"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-lba"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerLeaderboardAssists": [{
+                                        "element": "Assistencias6",
+                                        "tournamentId": 22,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+                              </div>
+                              
+                          </div>
+          
+                          <div class="tab-pane fade" id="redyellow6" role="tabpanel" aria-labelledby="cards6">
+                              
+                              <div class="container-fluid" >
+                      
+                                <div id="Cartoes6"></div>
+
+                                <script>
+                                  (function(b, s, p, o, r, t) {
+                                    b["broadage"] = b["broadage"] || [];
+                                    if (!b["broadage"].length) {
+                                      r = document.createElement(s);
+                                      t = document.getElementsByTagName(s)[0];
+                                      r.async = true;
+                                      r.src = p;
+                                      t.parentNode.insertBefore(r, t);
+                                    }
+                                    b["broadage"].push({ "bundleId": o.bundleId, "widgets": o.widgets, "accountId": o.accountId });
+                                  })(window, "script", "//cdn-saas.broadage.com/widgets/loader/loader.js", {
+                                    "bundleId": ["soccer-lbc"],
+                                    "accountId": "50cca7cd-22f7-49b7-83b6-e1a6eff7c03c",
+                                    "widgets": {
+                                      "soccerLeaderboardCards": [{
+                                        "element": "Cartoes6",
+                                        "tournamentId": 22,
+                                        "options": {
+                                          "theme": "darknessBlue",
+                                          "tournamentInfo": "none"
+                                        }
+                                      }]
+                                    }
+                                  });
+                                </script>
+
+          
+                              </div>
+                              
+                          </div>
+                      </div>
+                    
+                  </div>
+                  
+              </div>
+
+            </div>
+ 
+            
+
+        <!-- Adicionar o footer-->
+        <div id="footer" style=" bottom: 100%; text-align: center; color: rgb(255, 255, 255); font-size: large"></div>
+        <!-- Scripts necessários para a animação de background-->
+        <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script type = "text/javascript" src="http://localhost:3000/files/controllers/particles.js"></script>
+        <script src="http://localhost:3000/files/controllers/particles.js"></script>
+    </body>
+</html>

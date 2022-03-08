@@ -1,0 +1,33 @@
+html {
+    Overflow-y: auto
+}
+div img{
+    width: 190px;
+
+}
+
+
+body {margin: 0; height: 100%;}
+@media screen and (max-width: 700px){
+    html, body{
+        display: initial;
+        overflow-y: scroll;
+    }
+    .row{
+        display: initial;
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+.container {     display: flex;     justify-content: center;     flex-wrap: wrap; }@media(max-width: 700px){.container{
+    margin-top: 205px;
+}}
