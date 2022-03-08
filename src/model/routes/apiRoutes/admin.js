@@ -5,7 +5,7 @@ const router = express.Router();
 const userAuthentication = require("../../userAuthentication");
 
 const bcryptjs = require("bcryptjs");
-const dbConnection = require("../../dbConnection");
+const dbConnection = require("../../dbconnection");
 
 router.get('/admins', (req,res) => {
     dbConnection.query(`SELECT iduser, username FROM user WHERE level = ?`,
@@ -30,11 +30,18 @@ router.get('/users', (req,res) => {
         }
      })
 });
-router.get('/articles', (req,res) => {
-    dbConnection.query(``)
-})
 
-//ARTIGOS - A FAZER
+router.get('/articles', (req,res) => {
+    dbConnection.query(`SELECT idArticle, title, text FROM articles`,
+    (err,result) => {
+        if(err){
+            console.log(err)
+        }else{
+            res.status(200).json(result)
+        }
+    })
+});
+
 router.post('/articles', (req,res)=>{
     dbConnection.query("INSERT INTO articles (title, text) VALUES(?,?)",
     [req.body.title, req.body.text],

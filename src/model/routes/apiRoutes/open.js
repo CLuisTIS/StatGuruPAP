@@ -6,7 +6,8 @@ const router = express.Router();
 const userAuthentication = require("../../userAuthentication");
 
 const bcryptjs = require("bcryptjs");
-const dbConnection = require("../../dbConnection");
+
+const dbConnection = require("../../dbconnection");
 
 router.post(`/register`,(req,res)=>{
 

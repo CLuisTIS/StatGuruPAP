@@ -8,7 +8,6 @@ router.get('/scripts.js',(req, res) =>{
     res.sendFile(path.join(srcLocation, './controller/scripts.js'))
 });
 
-                // Imagens 
 router.get('/BundesligaLogo', function(req, res) {
     res.sendFile(path.join(srcLocation, './view/assets/Bundesliga.png'))
 });

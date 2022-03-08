@@ -136,4 +136,29 @@ async function articles(){
     .catch((error) => console.log(error));
     }
 }
-
+function fillNews(){
+    const options = {
+        method: 'GET',
+        headers: {
+            'authorization': localStorage.getItem("token")
+        }
+    }
+    fetch('http://localhost:3000/api/admin/articles',options)
+    .then((res) =>{
+        if(res.status =200) return res.json()
+        return null
+    })
+    .then((data) => {
+        if(data){
+            for(let i = 0; i< data.length; i++){
+                document.getElementById('listaArticles').innerHTML += `<tr> <td>${data[i].idArticle}</td><td> ${data[i].title}</td><td> ${data[i].text}</td> </tr>`
+        
+            }
+        }
+        else location.replace("http://localhost:3000/");
+        })
+    .catch((err)=>{
+        console.log(err)
+        alert('Erro na recolha dos artigos!')
+    })
+}
