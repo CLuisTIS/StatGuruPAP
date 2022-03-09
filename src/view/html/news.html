@@ -34,29 +34,39 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
    
-        <link rel="stylesheet" type="text/css" href="http://localhost:3000/files/styles/aboutus.css">
+        <link rel="stylesheet" type="text/css" href="http://localhost:3000/files/styles/news.css">
 
         <link rel="stylesheet" type="text/css" href="http://localhost:3000/files/styles/particles.css">
     
         <script src="http://localhost:3000/files/controllers/navFoot.js"></script>
+        <script src="http://localhost:3000/files/controllers/control.js"></script>
     
         <script src="http://localhost:3000/files/controllers/particles.js"></script>
         <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
                 
-    <title>StatGuru - About Us</title>
+    <title>StatGuru - Articles</title>
 
 </head>
 
-    <body onload="renderNavFoot(); renderFooter();">
+    <body onload="renderNavFoot(); renderFooter();fillArticles()">
         <!-- Adicionado o background com a animação-->
         <section id="particles-js"></section>
 
         <!-- Adicionar a navbar-->
         <div id="navbar"></div>
        
-    
-      
+        
+        <div class="container table-responsive-md mx-auto mt-3">
+            <table class="table text-center align-middle mt-2">
+                
+                <p class="text-center h5" scope="col" style="color: #f55139;">Articles List</p>
+
+                <tbody style="color: white;" id="listaArticles">
+                    
+                
+            </table>
+        </div>
  
 
         <!-- Adicionar o footer-->

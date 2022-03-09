@@ -136,7 +136,7 @@ async function articles(){
     .catch((error) => console.log(error));
     }
 }
-function fillNews(){
+function fillArticles(){
     const options = {
         method: 'GET',
         headers: {
@@ -151,8 +151,17 @@ function fillNews(){
     .then((data) => {
         if(data){
             for(let i = 0; i< data.length; i++){
-                document.getElementById('listaArticles').innerHTML += `<tr> <td>${data[i].idArticle}</td><td> ${data[i].title}</td><td> ${data[i].text}</td> </tr>`
-        
+                document.getElementById('listaArticles').innerHTML += 
+                `<div class=container>
+                <tr>
+                <td> 
+                <p style="text-align: left; margin-left:15px"> Article ID ${data[i].idArticle} </p>
+                <p> ${data[i].title} </p>
+                <div> ${data[i].text} </div>
+                </td>
+                </tr>
+                </div>`
+
             }
         }
         else location.replace("http://localhost:3000/");
@@ -162,3 +171,4 @@ function fillNews(){
         alert('Erro na recolha dos artigos!')
     })
 }
+//<tr> <td>${data[i].idArticle}</td><td> ${data[i].title}</td><td> ${data[i].text}</td> </tr>
