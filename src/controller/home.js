@@ -11,7 +11,7 @@ function renderStat(){
         fetch('http://localhost:3000/api/open/getAuth', options)
         .then((res) => {
             if(res.status===200){
-                renderCode('stats',`<button style="color: #f55139; width: 100%" class="nav-link col-6 fs-5 mx-auto" id="statistics"  data-bs-toggle="tab" data-bs-target="#stat" type="button" role="tab" aria-controls="stat" aria-selected="false">STATISTICS</button>`);
+                renderCode('stats',`<button style="color: #f55139; width: 100%;" class="nav-link col-6 fs-5 mx-auto" id="statistics"  data-bs-toggle="tab" data-bs-target="#stat" type="button" role="tab" aria-controls="stat" aria-selected="false">STATISTICS</button>`);
             }
             else{
                 localStorage.removeItem("token");

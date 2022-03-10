@@ -5,7 +5,7 @@ async function login(){
             'Content-type': 'application/json'
         },
         body: JSON.stringify({
-            username: document.getElementById("username").value,
+            email: document.getElementById("email").value,
             password: document.getElementById("password").value,
         })
     }
@@ -21,11 +21,11 @@ async function login(){
       })
       .catch((error) => console.log(error));
 
-      if(localStorage.getItem("token")) location.href = "http://localhost:3000";
+      if(localStorage.getItem("token")) location.href = "http://localhost:3000/news";
 }
 
 function validaLogin(){
-    if(document.getElementById("username").value != "" && document.getElementById("username").value != null &&
+    if(document.getElementById("email").value != "" && document.getElementById("email").value != null &&
        document.getElementById("password").value != "" && document.getElementById("password").value != null)
        return true;
     else
@@ -34,7 +34,7 @@ function validaLogin(){
 }
 
 function validaRegisto(){
-    if(document.getElementById("Rusername").value != "" && document.getElementById("Rusername").value != null &&
+    if(document.getElementById("Remail").value != "" && document.getElementById("Remail").value != null &&
        document.getElementById("Rpassword").value != "" && document.getElementById("Rpassword").value != null &&
        document.getElementById("RpasswordConfirmacao").value != "" && document.getElementById("RpasswordConfirmacao").value != null &&
        document.getElementById("Rpassword").value == document.getElementById("RpasswordConfirmacao").value)
@@ -53,7 +53,7 @@ async function register(){
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                username: document.getElementById("Rusername").value,
+                email: document.getElementById("Remail").value,
                 password: document.getElementById("Rpassword").value,
                 level:"regular"
             })
@@ -65,7 +65,7 @@ async function register(){
             location.reload();
             else{
                
-                document.getElementById("Rusername").value = ""
+                document.getElementById("Remail").value = ""
                 document.getElementById("Rpassword").value = ""
                 document.getElementById("RpasswordConfirmacao").value = ""
                 document.getElementById("msgErro").style.display = "block" 

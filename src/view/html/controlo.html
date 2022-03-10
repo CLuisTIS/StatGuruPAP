@@ -49,19 +49,20 @@
 
 </head>
 
-    <body onload="renderNavFoot(); renderFooter();">
+    <body onload="renderNav(); renderFooter(); authCeck();">
         <!-- Adicionado o background com a animação-->
         <section id="particles-js"></section>
 
         <!-- Adicionar a navbar-->
         <div id="navbar"></div>
-       
-            <p align="center">
-                <button class="btn-lg" type="button " id="btnNews" class="btn" onclick="fillArticles()" style="color: #f55139;">Add new Article</button>
-                
+        
+        <div class="container" id="display">
+            <p align = "center">
+        
                 <button class="btn-lg" type="button" id="btnAcc" class="btn" onclick="fillAdmins()" style="color: #f55139;">Add new Admin Account</button>
-
+                <button class="btn-lg" type="button " id="btnNews" class="btn" onclick="fillArticles()" style="color: #f55139;">Add new Article</button>
                 <button class="btn-lg" type="button" id="btnUsers" class="btn" onclick="fillUsers()"  style="color: #f55139;">User List</button>
+
             </p> 
 
             <div class="container" id="content" ></div>
@@ -70,8 +71,8 @@
           
 
                 <div class="mb-3">
-                    <label for="username" class="form-label h5" style="color: #f55139;">Username</label>
-                    <input class="form-control" id="username" placeholder="Insert Username">
+                    <label for="email" class="form-label h5" style="color: #f55139;">Email</label>
+                    <input class="form-control" id="email" placeholder="Insert Email">
                 </div>
 
                 <div class="mb-3">
@@ -85,7 +86,7 @@
                 </div>
 
                 <div id="msgErro" style="display: none; color: red;">
-                    Já existe uma conta com este username!
+                    Já existe uma conta com este email!
                 </div>
 
                 <button class="btn-lg h5" type="button" id="btnNewAcc" class="btn" onclick="register()" style="color: #f55139;">Add Admin Account</button>
@@ -97,7 +98,7 @@
                         <thead>
                             <tr> 
                                 <th class="text-center h5" scope="col" style="color: #f55139;">Admin ID</th>
-                                <th class="text-center h5" scope="col" style="color: #f55139;">Admin Username</th>
+                                <th class="text-center h5" scope="col" style="color: #f55139;">Admin email</th>
                             </tr>
                         </thead>
 
@@ -117,11 +118,16 @@
                         <label for="title" class="form-label h5" style="color: #f55139;">Article</label>
                         <input class="form-control" id="title" placeholder="Insert title">
                     </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label h5" style="color: #f55139;">Image URL</label>
+                        <input class="form-control" id="img" placeholder="Insert URL">
+                    </div>
 
                     <div class="mb-3">
                         <label for="text" class="form-label h5" style="color: #f55139;">Insert </label>
                         <textarea class="form-control" id="text" rows="3" placeholder="Insert text"></textarea>
                     </div>
+                    
                     
                     <button class="btn-lg h5" type="button" id="btnNewArticle" class="btn" onclick="articles();" style="color: #f55139;">Send Article</button>
              
@@ -147,7 +153,7 @@
                         <thead>
                             <tr>
                                 <th class="text-center h5" scope="col" style="color: #f55139;">User ID</th>
-                                <th class="text-center h5" scope="col" style="color: #f55139;">User Username</th>
+                                <th class="text-center h5" scope="col" style="color: #f55139;">User email</th>
                             </tr>
                         </thead>
 
@@ -158,7 +164,7 @@
                 </div>
             </div>
 
-
+        </div>
             <!-- Adicionar o footer-->
             <footer id="footer"></footer>
 

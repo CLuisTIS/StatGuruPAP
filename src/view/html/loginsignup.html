@@ -40,7 +40,7 @@
 
 </head>
 
-<body onload="renderNavFoot(); renderFooter();">
+<body onload="renderNav(); renderFooter();">
     
     <!-- Adicionado o background com a animação-->
     <section id="particles-js"></section>
@@ -64,8 +64,8 @@
                         <div class="tabcontent" id="sign-in">
                             <div class="form-row">
                                 <label class="form-row-inner">
-                                    <input id="username" type="text" class="input-text" required>
-                                    <span class="label">Username</span>
+                                    <input id="email" type="text" class="input-text" required>
+                                    <span class="label">Email</span>
                                     <span class="border"></span>
                                 </label>
                             </div>
@@ -86,8 +86,8 @@
                         <div class="tabcontent" id="sign-up">
                             <div class="form-row">
                                 <label class="form-row-inner">
-                                    <input type="text"  id="Rusername" class="input-text" maxlength = "45" required>
-                                    <span class="label">Username</span>
+                                    <input type="text"  id="Remail" class="input-text" maxlength = "45" required>
+                                    <span class="label">Email</span>
                                     <span class="border"></span>
                                 </label>
                             </div>
@@ -106,7 +106,7 @@
                                 </label>
                             </div>
                             <div id="msgErro" style="display: none; color: red;">
-                                Já existe uma conta com este username!
+                                Já existe uma conta com este email!
                             </div>
                             <div class="form-row-last">
                                 <button type="button" id="login" class="register" onclick="register()"> Sign-up</button>

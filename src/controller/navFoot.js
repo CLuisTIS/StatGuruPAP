@@ -1,4 +1,4 @@
-function renderNavFoot(){
+function renderNav(){
     if(localStorage.getItem("token")){
         const options = {
             method: 'POST',

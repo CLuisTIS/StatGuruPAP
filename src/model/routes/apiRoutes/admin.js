@@ -8,7 +8,7 @@ const bcryptjs = require("bcryptjs");
 const dbConnection = require("../../dbconnection");
 
 router.get('/admins', (req,res) => {
-    dbConnection.query(`SELECT iduser, username FROM user WHERE level = ?`,
+    dbConnection.query(`SELECT iduser, email FROM user WHERE level = ?`,
     ["admin"],
     (err,result)=>{
         if(err){
@@ -20,7 +20,7 @@ router.get('/admins', (req,res) => {
 });
 
 router.get('/users', (req,res) => {
-    dbConnection.query(`SELECT iduser, username FROM user WHERE level = ?`,
+    dbConnection.query(`SELECT iduser, email FROM user WHERE level = ?`,
     ["regular"],
     (err,result)=>{
         if(err){
@@ -32,7 +32,7 @@ router.get('/users', (req,res) => {
 });
 
 router.get('/articles', (req,res) => {
-    dbConnection.query(`SELECT idArticle, title, text FROM articles`,
+    dbConnection.query(`SELECT idArticle, title, imagem, text FROM articles`,
     (err,result) => {
         if(err){
             console.log(err)
@@ -43,7 +43,7 @@ router.get('/articles', (req,res) => {
 });
 
 router.post('/articles', (req,res)=>{
-    dbConnection.query("INSERT INTO articles (title, text) VALUES(?,?)",
+    dbConnection.query("INSERT INTO articles (title, text, imagem) VALUES (?,?,?)",
     [req.body.title, req.body.text],
     (err,result)=>{
         if(err){
@@ -56,15 +56,15 @@ router.post('/articles', (req,res)=>{
 });
 
 router.post('/admins', (req,res) => {
-    dbConnection.query(`SELECT COUNT(user.iduser) AS contagem FROM user WHERE user.username = ?`,
-    [req.body.username],
+    dbConnection.query(`SELECT COUNT(user.iduser) AS contagem FROM user WHERE user.email = ?`,
+    [req.body.email],
     (err,result)=>{
         if(err){
             console.log(err)
         }else
             if(result[0].contagem == 0){
-            dbConnection.query("INSERT INTO user (username, password, level) VALUES (?,?,?)",
-            [req.body.username,bcryptjs.hashSync(escape(req.body.password,bcryptjs.genSaltSync(2))),"admin"],
+            dbConnection.query("INSERT INTO user (email, password, level) VALUES (?,?,?)",
+            [req.body.email,bcryptjs.hashSync(escape(req.body.password,bcryptjs.genSaltSync(2))),"admin"],
             (err,result)=>{
                 if(err){
                     console.log(err)
@@ -81,7 +81,7 @@ router.post('/admins', (req,res) => {
           })
         }
         else{
-            res.status(406).send("Já existe uma conta com esse username!")
+            res.status(406).send("Já existe uma conta com esse email!")
         }
     })
 });

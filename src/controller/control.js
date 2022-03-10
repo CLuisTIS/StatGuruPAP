@@ -1,5 +1,5 @@
 function validaRegisto(){
-    if(document.getElementById("username").value != "" && document.getElementById("username").value != null &&
+    if(document.getElementById("email").value != "" && document.getElementById("email").value != null &&
        document.getElementById("password").value != "" && document.getElementById("password").value != null &&
        document.getElementById("passwordConfirmacao").value != "" && document.getElementById("passwordConfirmacao").value != null &&
        document.getElementById("password").value == document.getElementById("passwordConfirmacao").value)
@@ -19,7 +19,7 @@ async function register(){
                 'authorization': localStorage.getItem("token")
             },
             body: JSON.stringify({
-                username: document.getElementById("username").value,
+                email: document.getElementById("email").value,
                 password: document.getElementById("password").value,
                 level:"admin"
             })
@@ -30,12 +30,12 @@ async function register(){
             if(res.status == 200){
                 document.getElementById("listaAdmins").innerHTML = ""
                 fillAdmins();
-                document.getElementById("username").value = ""
+                document.getElementById("email").value = ""
                 document.getElementById("password").value = ""
                 document.getElementById("passwordConfirmacao").value = ""
                 document.getElementById("msgErro").style.display = "none"}
             else{
-                document.getElementById("username").value = ""
+                document.getElementById("email").value = ""
                 document.getElementById("password").value = ""
                 document.getElementById("passwordConfirmacao").value = ""
                 document.getElementById("msgErro").style.display = "block" 
@@ -61,7 +61,7 @@ function fillAdmins(){
     .then((data) => {
         if(data){
             for(let i = 0; i< data.length; i++){
-                document.getElementById('listaAdmins').innerHTML += `<tr> <td>${data[i].iduser}</td><td> ${data[i].username}</td> </tr>`
+                document.getElementById('listaAdmins').innerHTML += `<tr> <td>${data[i].iduser}</td><td> ${data[i].email}</td> </tr>`
                 
             }
         }
@@ -88,7 +88,7 @@ function fillUsers(){
     .then((data) => {
         if(data){
             for(let i = 0; i< data.length; i++){
-                document.getElementById('listaUsers').innerHTML += `<tr> <td>${data[i].iduser}</td><td> ${data[i].username}</td> </tr>`
+                document.getElementById('listaUsers').innerHTML += `<tr> <td>${data[i].iduser}</td><td> ${data[i].email}</td> </tr>`
 
             }
         }
@@ -102,11 +102,15 @@ function fillUsers(){
 
 function validaArtigo(){
         if(document.getElementById("title").value != "" && document.getElementById("title").value != null &&
-           document.getElementById("text").value != "" && document.getElementById("text").value)
+           document.getElementById("img").value != "" && document.getElementById("img").value != null &&
+           document.getElementById("text").value != "" && document.getElementById("text").value != null 
+           ){
            return true;
-        else
+        }
+        else{
             alert("Introduza os dados do artigo corretamente");
             return false;
+        }
     }
 
 async function articles(){
@@ -119,6 +123,7 @@ async function articles(){
             },
             body: JSON.stringify({
                 title: document.getElementById("title").value,
+                text: document.getElementById("img").value,
                 text: document.getElementById("text").value
             })
         }
@@ -127,11 +132,9 @@ async function articles(){
             if(res.status == 200){
                 document.getElementById("title").value = ""
                 document.getElementById("text").value = ""
+                document.getElementById("img").value = ""
             }
-            else{
-                document.getElementById("title").value = ""
-                document.getElementById("text").value = ""
-            }
+
     })
     .catch((error) => console.log(error));
     }
@@ -156,12 +159,12 @@ function fillArticles(){
                 <tr>
                 <td> 
                 <p style="text-align: left; margin-left:15px"> Article ID ${data[i].idArticle} </p>
+                <div> <img src="${data[i].imagem}"></img> </div>
                 <p> ${data[i].title} </p>
                 <div> ${data[i].text} </div>
                 </td>
                 </tr>
                 </div>`
-
             }
         }
         else location.replace("http://localhost:3000/");
@@ -171,4 +174,43 @@ function fillArticles(){
         alert('Erro na recolha dos artigos!')
     })
 }
-//<tr> <td>${data[i].idArticle}</td><td> ${data[i].title}</td><td> ${data[i].text}</td> </tr>
+
+function authCeck(){
+    if(localStorage.getItem("token")){
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'authorization': localStorage.getItem("token")
+            },
+            body: JSON.stringify()
+        }
+
+        fetch('http://localhost:3000/api/admin/getAuth', options)
+        .then((res) => {
+            if(res.status===200){
+                return res.json()
+            }
+            else{
+                localStorage.removeItem("token");
+                return null
+            }
+        })
+        .then((res)=>{
+            if(res){
+            console.log(res);
+            switch (res.level) {
+                case 'regular':
+                    document.getElementById("display").innerHTML = display ="none"
+                    break;
+                case 'admin':
+                    document.getElementById("display").innerHTML =
+                    break;
+            }
+        }else return;
+        })
+        .catch((error) => console.log(error));
+    }else{
+        alert("shiet")
+    }
+}

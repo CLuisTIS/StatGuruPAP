@@ -12,10 +12,6 @@ router.get('/home.js',(req, res) =>{
     res.sendFile(path.join(srcLocation, './controller/home.js'))
 });
 
-router.get('/aboutUs.js',(req, res) =>{
-    res.sendFile(path.join(srcLocation, './controller/loginSignup.js'))
-});
-
 router.get('/loginSignup.js',(req, res) =>{
     res.sendFile(path.join(srcLocation, './controller/loginSignup.js'))
 });
@@ -27,6 +23,10 @@ router.get('/control.js',(req, res) =>{
 router.get('/navFoot.js',(req, res) =>{
     res.sendFile(path.join(srcLocation, './controller/navFoot.js'))
 });
+router.get('/articles.js',(req, res) =>{
+    res.sendFile(path.join(srcLocation, './controller/articles.js'))
+});
+
 
 
 module.exports = router;
