@@ -201,10 +201,10 @@ function authCeck(){
             console.log(res);
             switch (res.level) {
                 case 'regular':
-                    document.getElementById("display").innerHTML = display ="none"
+                   
                     break;
                 case 'admin':
-                    document.getElementById("display").innerHTML =
+                    
                     break;
             }
         }else return;
