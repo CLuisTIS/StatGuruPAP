@@ -43,7 +43,7 @@ router.post(`/register`,(req,res)=>{
 });
 
 router.get('/articles', (req,res) => {
-    dbConnection.query(`SELECT idArticle, title, imagem, text FROM articles`,
+    dbConnection.query(`SELECT idArticle, title, text, imagem  FROM articles`,
     (err,result) => {
         if(err){
             console.log(err)
@@ -53,18 +53,6 @@ router.get('/articles', (req,res) => {
     })
 });
 
-router.post('/articles', (req,res)=>{
-    dbConnection.query("INSERT INTO articles (title, text, imagem) VALUES (?,?,?)",
-    [req.body.title, req.body.text],
-    (err,result)=>{
-        if(err){
-            console.log(err);
-            res.status(406).send("Erro na introdução")
-        }else{
-            res.status(200).send(result)
-        }
-    })
-});
 
 
 router.post("/login", userAuthentication.login)

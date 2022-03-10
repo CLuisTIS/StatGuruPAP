@@ -40,7 +40,7 @@ function renderNav(){
 }
 
 function renderFooter(){
-    renderCode("footer",`<footer class="footer  py-3" >
+    renderCode("footer",`<footer class="footer  py-3 " >
     <span class="text bottom-0 start-0" >Made by: Carlos Luís </span>
   </footer>`)
 }

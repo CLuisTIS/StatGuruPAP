@@ -1,6 +1,7 @@
 html{
     Overflow-y: auto
-}.card{
+}
+.card{
     background-color: transparent !important;
     background: transparent !important;
 } 
@@ -8,15 +9,17 @@ div img{
         width: 190px;
     
     }
-.footer{
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background: transparent;
-    margin-top: 25px;
-}
+    .footer{
+        text-align: center;
+        position: fixed;
+        padding: 10px 10px 0px 10px;
+        bottom: 0;
+        width: 100%;
+        /* Height of the footer*/ 
+        height: 40px;
+        background-color: grey; 
+
+    }
 .text{
     font-family: 'Courier New', Courier, monospace;
     font-size: large;

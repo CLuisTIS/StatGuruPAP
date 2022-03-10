@@ -102,7 +102,7 @@ function fillUsers(){
 
 function validaArtigo(){
         if(document.getElementById("title").value != "" && document.getElementById("title").value != null &&
-           document.getElementById("img").value != "" && document.getElementById("img").value != null &&
+           document.getElementById("imagem").value != "" && document.getElementById("imagem").value != null &&
            document.getElementById("text").value != "" && document.getElementById("text").value != null 
            ){
            return true;
@@ -123,7 +123,7 @@ async function articles(){
             },
             body: JSON.stringify({
                 title: document.getElementById("title").value,
-                text: document.getElementById("img").value,
+                imagem: document.getElementById("imagem").value,
                 text: document.getElementById("text").value
             })
         }
@@ -131,8 +131,8 @@ async function articles(){
         .then((res) =>{
             if(res.status == 200){
                 document.getElementById("title").value = ""
+                document.getElementById("imagem").value = ""
                 document.getElementById("text").value = ""
-                document.getElementById("img").value = ""
             }
 
     })
@@ -153,15 +153,15 @@ function fillArticles(){
     })
     .then((data) => {
         if(data){
-            for(let i = 0; i< data.length; i++){
+            for(let i = data.length; i-- > 0;){
                 document.getElementById('listaArticles').innerHTML += 
                 `<div class=container>
                 <tr>
                 <td> 
-                <p style="text-align: left; margin-left:15px"> Article ID ${data[i].idArticle} </p>
-                <div> <img src="${data[i].imagem}"></img> </div>
-                <p> ${data[i].title} </p>
-                <div> ${data[i].text} </div>
+                <p style="text-align: left; margin-left:15px"> Article ID ${data[i].idArticle}</p>
+                <p class="h5" style="margin-top:25px"> ${data[i].title} </p>
+                <div> <img src="${data[i].imagem}"></img></div>
+                <div class="h6" style="margin-top:25px"> ${data[i].text} </div>
                 </td>
                 </tr>
                 </div>`
@@ -175,10 +175,10 @@ function fillArticles(){
     })
 }
 
-function authCeck(){
+function authCheck(){
     if(localStorage.getItem("token")){
         const options = {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-type': 'application/json',
                 'authorization': localStorage.getItem("token")
@@ -211,6 +211,6 @@ function authCeck(){
         })
         .catch((error) => console.log(error));
     }else{
-        alert("shiet")
+        alert("asd")
     }
 }

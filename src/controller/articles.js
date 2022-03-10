@@ -34,9 +34,10 @@ function renderNews(){
         })
         .catch((error) => console.log(error));
     }else{
-        alert("shiet")
+        alert("Utilizador sem acesso!")
     }
 }
+
 function fillArticles(){
     const options = {
         method: 'GET',
@@ -51,15 +52,15 @@ function fillArticles(){
     })
     .then((data) => {
         if(data){
-            for(let i = 0; i< data.length; i++){
+            for(let i = data.length; i-- > 0;){
                 document.getElementById('listaArticles').innerHTML += 
                 `<div class=container>
                 <tr>
                 <td> 
                 <p style="text-align: left; margin-left:15px"> Article ID ${data[i].idArticle} </p>
-                <div> <img src="${data[i].img}"></img> </div>
-                <p> ${data[i].title} </p>
-                <div> ${data[i].text} </div>
+                <p class="h5" style="margin-bottom:25px"> ${data[i].title} </p>
+                <div> <img src="${data[i].imagem}"></img> </div>
+                <div class="h6" style="margin-top:25px"> ${data[i].text} </div>
                 </td>
                 </tr>
                 </div>`
@@ -72,3 +73,4 @@ function fillArticles(){
         alert('Erro na recolha dos artigos!')
     })
 }
+ 

@@ -32,7 +32,7 @@ router.get('/users', (req,res) => {
 });
 
 router.get('/articles', (req,res) => {
-    dbConnection.query(`SELECT idArticle, title, imagem, text FROM articles`,
+    dbConnection.query(`SELECT idArticle, title, text, imagem FROM articles`,
     (err,result) => {
         if(err){
             console.log(err)
@@ -44,7 +44,7 @@ router.get('/articles', (req,res) => {
 
 router.post('/articles', (req,res)=>{
     dbConnection.query("INSERT INTO articles (title, text, imagem) VALUES (?,?,?)",
-    [req.body.title, req.body.text],
+    [req.body.title, req.body.text, req.body.imagem],
     (err,result)=>{
         if(err){
             console.log(err);
