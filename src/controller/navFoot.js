@@ -96,7 +96,7 @@ function renderNavRegular() {
                     <a class="nav-link fs-4" href="http://localhost:3000/home">Resultados em Direto e Estatísticas</a>
                     </li>
                     <li class="nav-item"  style="margin-right:10px">
-                    <a class="nav-link fs-4" href="http://localhost:3000/news">Artigos</a>
+                    <a class="nav-link fs-4" href="http://localhost:3000/Artigos">Artigos</a>
                     </li>
                     <li class="nav-item"  style="margin-right:10px">
                     <a class="nav-link fs-4" href="http://localhost:3000/Sobrenos">Sobre Nós</a>

@@ -62,7 +62,7 @@ function fillAdmins() {
         .then((data) => {
             if (data) {
                 for (let i = 0; i < data.length; i++) {
-                    document.getElementById('listaAdmins').innerHTML += `<tr> <td>${data[i].iduser}</td><td> ${data[i].email}</td> </tr>`
+                    document.getElementById('listaAdmins').innerHTML += `<tr> <td style="width:50%">${data[i].iduser}</td><td style="width:50%" > ${data[i].email}</td> </tr>`
 
                 }
             }
@@ -89,7 +89,7 @@ function fillUsers() {
         .then((data) => {
             if (data) {
                 for (let i = 0; i < data.length; i++) {
-                    document.getElementById('listaUsers').innerHTML += `<tr> <td>${data[i].iduser}</td><td> ${data[i].email}</td><td> ${data[i].level}</td></tr>`
+                    document.getElementById('listaUsers').innerHTML += `<tr> <td style="width:33%">${data[i].iduser}</td><td style="width:33%"> ${data[i].email}</td><td style="width:33%"> ${data[i].level}</td></tr>`
 
                 }
             }
@@ -160,10 +160,10 @@ function fillArticles() {
                         `<div class="container aligns-items-center justify-content-center" >
                 <tr>
                 <td>    
-                <p style="text-align: left; margin-left:15px"> Article ID ${data[i].idArticle}</p>
-                <p class="h5 container aligns-items-center justify-content-center" style="margin-top:25px;text-align: center;"> ${data[i].title} </p>
-                <div class="aligns-items-center justify-content-center "> <img style="width:750px"src="${data[i].imagem}"></img></div>
-                <div class=" container h6 aligns-items-center justify-content-center " style="margin-top:25px;"> ${data[i].text} </div>
+                <p style="text-align: left; margin-left:15px; width:100%"> Article ID ${data[i].idArticle}</p>
+                <p class="h5 container aligns-items-center justify-content-center" style="margin-top:25px; text-align: center; width:100%"> ${data[i].title} </p>
+                <div class="aligns-items-center justify-content-center " style="width:100%"> <img class="img-fluid" src="${data[i].imagem}"></img></div>
+                <div class="container h6" style="margin-top:25px; text-align: justify; style="width:auto"> ${data[i].text} </div>
                 </td>    
                 </tr>
                 </div>`
@@ -226,8 +226,8 @@ function validaAtArtigo() {
         return false;
     }
 }
-async function atArticle(){
-    if(validaAtArtigo){
+async function atArticle() {
+    if (validaAtArtigo) {
         const options = {
             method: 'POST',
             headers: {
@@ -254,5 +254,44 @@ async function atArticle(){
                 }
             })
             .catch((error) => console.log(error));
+    }
+}
+function Acesso() {
+    if (localStorage.getItem("token")) {
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'authorization': localStorage.getItem("token")
+            },
+            body: JSON.stringify()
+        }
+
+        fetch('http://localhost:3000/api/open/getAuth', options)
+            .then((res) => {
+                if (res.status === 200) {
+                    return res.json()
+                }
+                else {
+                    localStorage.removeItem("token");
+                    return null
+                }
+            })
+            .then((res) => {
+                if (res) {
+                    console.log(res);
+                    switch (res.level) {
+                        case 'regular':
+                            alert("Utilizador sem acesso aos controladores!")
+                            break;
+                        case 'admin':
+                    
+                            break;
+                    }
+                } else return;
+            })
+            .catch((error) => console.log(error));
+    } else {
+        alert("Utilizador sem acesso!")
     }
 }

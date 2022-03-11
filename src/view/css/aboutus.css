@@ -1,5 +1,5 @@
 html{
-    Overflow-y: auto
+   
 }.card{
     background-color: transparent !important;
     background: transparent !important;
@@ -26,14 +26,11 @@ div img{
    
     
 @media screen and (max-width: 700px){
-    html, body{
-        display: initial;
-        overflow: hidden;
-    }  .footer{
-        position: relative;
-        text-align: center;
-        align-content: center;
-        align-items: center;
+    html{
+       
+        Overflow-y: auto
+    }  img{
+        width:275px
     }
 }
 

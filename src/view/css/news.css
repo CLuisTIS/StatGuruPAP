@@ -36,6 +36,8 @@ div img{
         text-align: center;
         align-content: center;
         align-items: center;
+    }img{
+    width: auto;
     }
 }
 

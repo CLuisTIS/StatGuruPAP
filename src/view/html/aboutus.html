@@ -63,55 +63,56 @@
 
 
 
-    <div class="container" style=" width: 100%;">
-
-        <div class="row">
-
-            <div class="card align-self-center mx-auto" style="width:185px; text-align: center">
-                <button class="btn-lg" type="button " id="btnSobre" class="btn"
-                    style="color: orangered; background-color: transparent;">Project</button>
-
-            </div>
-
-            <div class="card align-self-center mx-auto" style="width:250px; text-align: center; margin-left: 3px;">
-                <button class="btn-lg" type="button" id="btnEu" class="btn"
-                    style="color: orangered; background-color: transparent;">About Developers</button>
-
-            </div>
 
 
+    <div class="container">
+
+        <p align="center"><img src="http://localhost:3000/files/assets/StatGuruLogo" class="border border-5"
+                style="width: 275px; align-self: center;"></p>
+
+        <div class="text" style="text-align: justify;">
+
+
+            <p>Este foi um projeto desenvolvido com o propósito de fornecer resultados e estatísticas em tempo real das principais ligas de futebol. </p>
+            <p>Neste website temos disponível as principais estatísticas das seguintes ligas: Premier Legue; La Liga; Serie A; Bundesliga; Ligue 1; Liga Portugal Bwin.</p>
+            <p>Diponibilizamos também uma página de artigos, onde poderá verificar as principais notícias no mundo do futebol.</p>
+            <p>Para poder usufruir de todas as funcionalidades, registe-se!!</p>
+
+            
+        </div> 
+
+            <p class="text" style="text-align: left; margin-top: 25px;">Se tiver alguma dúvida, não exite em contactar!</p>
+        <div class="text" style="display:flex">
+            <form style="align-self:center" action="https://formspree.io/f/xpzbrvwp" method="POST"
+                enctype="multipart/form-data">
+                <p style="text-align: left;">
+                    <label>
+                        O seu e-mail:
+                        <input style="margin-left:23px" type="email" name="email">
+                    </label>
+                </p>
+                <p style="text-align: left;">
+                    <label>
+                        O seu ficheiro:
+                        <input type="file" name="upload">
+                    </label>
+                </p>
+                <p style="text-align: left;">
+                    <label>
+                        A sua mensagem:
+                        <textarea name="message"></textarea>
+                    </label>
+                </p >
+                <p style="text-align: left;"> 
+                <button type="submit">Enviar</button>
+                </p>
+            </form>
+            <div class="mx-auto" style="width:auto"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2577.4123640846256!2d-25.658321965026026!3d37.745707994896016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb5cd5367e519563%3A0xb8a2fff4ffa339f7!2sAv.%20Dom%20Jo%C3%A3o%20III%2024%201%C2%BAesquerdo%2C%209500-310%20Ponta%20Delgada!5e0!3m2!1spt-PT!2spt!4v1647000806827!5m2!1spt-PT!2spt" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+        
         </div>
-    </div>
-
-    <div id="content" class="container-fluid" style="width: 100%; margin-top: 25px;"></div>
+        
 
 
-
-    <div class="container-fluid" id="me" style="display: none; width: 100%; ">
-        <div style="margin-left: 50px; width: 33%;">
-            <img src="http://localhost:3000/files/assets/fotoeu" class="rounded-circle border border-5"
-                style="width: 40%; margin-left: 50px;" alt="">
-            <div class="text" style="width: 40%; margin-left: 50px; margin-top: 10px; text-align: center;"> Carlos Luís
-            </div>
-            <div class="text" style="width: 40%; margin-left: 50px; text-align: center;"> </div>
-
-
-        </div>
-        <div style="right: 0;width: 66%;">
-
-        </div>
-    </div>
-    <div class="container-fluid" id="sobre" style="display: none; width: 100%; ">
-        <div style="margin-left: 50px; width: 33%;">
-            <img src="http://localhost:3000/files/assets/StatGuruLogo" class="rounded-circle border border-5"
-                style="width: 40%; margin-left: 50px;" alt="">
-
-            <div class="text" style="width: 100%; margin-left: 75px; text-align: center;"> </div>
-
-        </div>
-        <div style="right: 0;width: 66%;">
-
-        </div>
     </div>
 
 
@@ -121,20 +122,9 @@
     <!-- Scripts necessários para a animação de background-->
     <script type="text/javascript" src="http://localhost:3000/files/controllers/particles.js"></script>
     <script src="http://localhost:3000/files/controllers/particles.js"></script>
-    <script>
-        let btnSobre = document.querySelector('#btnSobre');
-        let btnEu = document.querySelector('#btnEu');
 
-        let content = document.querySelector('#content')
 
-        btnEu.addEventListener('click', () => {
-            document.getElementById("content").innerHTML = document.getElementById("me").innerHTML
-        });
-        btnSobre.addEventListener('click', () => {
-            document.getElementById("content").innerHTML = document.getElementById("sobre").innerHTML
-        });
 
-    </script>
 </body>
 
 </html>
