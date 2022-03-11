@@ -1,17 +1,17 @@
-function validaRegisto(){
-    if(document.getElementById("email").value != "" && document.getElementById("email").value != null &&
-       document.getElementById("password").value != "" && document.getElementById("password").value != null &&
-       document.getElementById("passwordConfirmacao").value != "" && document.getElementById("passwordConfirmacao").value != null &&
-       document.getElementById("password").value == document.getElementById("passwordConfirmacao").value)
-       return true;
+function validaRegisto() {
+    if (document.getElementById("email").value != "" && document.getElementById("email").value != null &&
+        document.getElementById("password").value != "" && document.getElementById("password").value != null &&
+        document.getElementById("passwordConfirmacao").value != "" && document.getElementById("passwordConfirmacao").value != null &&
+        document.getElementById("password").value == document.getElementById("passwordConfirmacao").value)
+        return true;
     else
         alert("introduza os dados de registo corretamente");
-        return false;
+    return false;
 }
 
-async function register(){
+async function register() {
 
-    if(validaRegisto()){
+    if (validaRegisto()) {
         const options = {
             method: 'POST',
             headers: {
@@ -21,100 +21,101 @@ async function register(){
             body: JSON.stringify({
                 email: document.getElementById("email").value,
                 password: document.getElementById("password").value,
-                level:"admin"
+                level: "admin"
             })
         }
-    
+
         await fetch('http://localhost:3000/api/admin/admins', options)
+            .then((res) => {
+                if (res.status == 200) {
+                    document.getElementById("listaAdmins").innerHTML = ""
+                    fillAdmins();
+                    document.getElementById("email").value = ""
+                    document.getElementById("password").value = ""
+                    document.getElementById("passwordConfirmacao").value = ""
+                    document.getElementById("msgErro").style.display = "none"
+                }
+                else {
+                    document.getElementById("email").value = ""
+                    document.getElementById("password").value = ""
+                    document.getElementById("passwordConfirmacao").value = ""
+                    document.getElementById("msgErro").style.display = "block"
+                }
+            })
+            .catch((error) => console.log(error));
+
+    }
+}
+
+function fillAdmins() {
+    const options = {
+        method: 'GET',
+        headers: {
+            'authorization': localStorage.getItem("token")
+        }
+    }
+    fetch('http://localhost:3000/api/admin/admins', options)
         .then((res) => {
-            if(res.status == 200){
-                document.getElementById("listaAdmins").innerHTML = ""
-                fillAdmins();
-                document.getElementById("email").value = ""
-                document.getElementById("password").value = ""
-                document.getElementById("passwordConfirmacao").value = ""
-                document.getElementById("msgErro").style.display = "none"}
-            else{
-                document.getElementById("email").value = ""
-                document.getElementById("password").value = ""
-                document.getElementById("passwordConfirmacao").value = ""
-                document.getElementById("msgErro").style.display = "block" 
+            if (res.status = 200) return res.json()
+            return null
+        })
+        .then((data) => {
+            if (data) {
+                for (let i = 0; i < data.length; i++) {
+                    document.getElementById('listaAdmins').innerHTML += `<tr> <td>${data[i].iduser}</td><td> ${data[i].email}</td> </tr>`
+
+                }
             }
-          })
-          .catch((error) => console.log(error));
-          
-    }      
+            else location.replace("http://localhost:3000/");
+        })
+        .catch((err) => {
+            console.log(err)
+            alert('Erro na recolha dos admins!')
+        })
 }
 
-function fillAdmins(){
+function fillUsers() {
     const options = {
         method: 'GET',
         headers: {
             'authorization': localStorage.getItem("token")
         }
     }
-    fetch('http://localhost:3000/api/admin/admins',options)
-    .then((res) =>{
-        if(res.status =200) return res.json()
-        return null
-    })
-    .then((data) => {
-        if(data){
-            for(let i = 0; i< data.length; i++){
-                document.getElementById('listaAdmins').innerHTML += `<tr> <td>${data[i].iduser}</td><td> ${data[i].email}</td> </tr>`
-                
-            }
-        }
-        else location.replace("http://localhost:3000/");
+    fetch('http://localhost:3000/api/admin/users', options)
+        .then((res) => {
+            if (res.status = 200) return res.json()
+            return null
         })
-    .catch((err)=>{
-        console.log(err)
-        alert('Erro na recolha dos admins!')
-    })
+        .then((data) => {
+            if (data) {
+                for (let i = 0; i < data.length; i++) {
+                    document.getElementById('listaUsers').innerHTML += `<tr> <td>${data[i].iduser}</td><td> ${data[i].email}</td><td> ${data[i].level}</td></tr>`
+
+                }
+            }
+            else location.replace("http://localhost:3000/");
+        })
+        .catch((err) => {
+            console.log(err)
+            alert('Erro na recolha dos utilizadores!')
+        })
 }
 
-function fillUsers(){
-    const options = {
-        method: 'GET',
-        headers: {
-            'authorization': localStorage.getItem("token")
-        }
+function validaArtigo() {
+    if (document.getElementById("title").value != "" && document.getElementById("title").value != null &&
+        document.getElementById("imagem").value != "" && document.getElementById("imagem").value != null &&
+        document.getElementById("text").value != "" && document.getElementById("text").value != null
+    ) {
+        return true;
     }
-    fetch('http://localhost:3000/api/admin/users',options)
-    .then((res) =>{
-        if(res.status =200) return res.json()
-        return null
-    })
-    .then((data) => {
-        if(data){
-            for(let i = 0; i< data.length; i++){
-                document.getElementById('listaUsers').innerHTML += `<tr> <td>${data[i].iduser}</td><td> ${data[i].email}</td> </tr>`
-
-            }
-        }
-        else location.replace("http://localhost:3000/");
-        })
-    .catch((err)=>{
-        console.log(err)
-        alert('Erro na recolha dos utilizadores!')
-    })
+    else {
+        alert("Introduza os dados do artigo corretamente");
+        return false;
+    }
 }
 
-function validaArtigo(){
-        if(document.getElementById("title").value != "" && document.getElementById("title").value != null &&
-           document.getElementById("imagem").value != "" && document.getElementById("imagem").value != null &&
-           document.getElementById("text").value != "" && document.getElementById("text").value != null 
-           ){
-           return true;
-        }
-        else{
-            alert("Introduza os dados do artigo corretamente");
-            return false;
-        }
-    }
-
-async function articles(){
-    if(validaArtigo()){
+async function articles() {
+    if (validaArtigo()) {
         const options = {
             method: 'POST',
             headers: {
@@ -128,89 +129,130 @@ async function articles(){
             })
         }
         await fetch('http://localhost:3000/api/admin/articles', options)
-        .then((res) =>{
-            if(res.status == 200){
-                document.getElementById("title").value = ""
-                document.getElementById("imagem").value = ""
-                document.getElementById("text").value = ""
-            }
+            .then((res) => {
+                if (res.status == 200) {
+                    document.getElementById("title").value = ""
+                    document.getElementById("imagem").value = ""
+                    document.getElementById("text").value = ""
+                }
 
-    })
-    .catch((error) => console.log(error));
+            })
+            .catch((error) => console.log(error));
     }
 }
-function fillArticles(){
+
+function fillArticles() {
     const options = {
         method: 'GET',
         headers: {
             'authorization': localStorage.getItem("token")
         }
     }
-    fetch('http://localhost:3000/api/admin/articles',options)
-    .then((res) =>{
-        if(res.status =200) return res.json()
-        return null
-    })
-    .then((data) => {
-        if(data){
-            for(let i = data.length; i-- > 0;){
-                document.getElementById('listaArticles').innerHTML += 
-                `<div class=container>
+    fetch('http://localhost:3000/api/admin/articles', options)
+        .then((res) => {
+            if (res.status = 200) return res.json()
+            return null
+        })
+        .then((data) => {
+            if (data) {
+                for (let i = data.length; i-- > 0;) {
+                    document.getElementById('listaArticles').innerHTML +=
+                        `<div class="container aligns-items-center justify-content-center" >
                 <tr>
-                <td> 
+                <td>    
                 <p style="text-align: left; margin-left:15px"> Article ID ${data[i].idArticle}</p>
-                <p class="h5" style="margin-top:25px"> ${data[i].title} </p>
-                <div> <img src="${data[i].imagem}"></img></div>
-                <div class="h6" style="margin-top:25px"> ${data[i].text} </div>
-                </td>
+                <p class="h5 container aligns-items-center justify-content-center" style="margin-top:25px;text-align: center;"> ${data[i].title} </p>
+                <div class="aligns-items-center justify-content-center "> <img style="width:750px"src="${data[i].imagem}"></img></div>
+                <div class=" container h6 aligns-items-center justify-content-center " style="margin-top:25px;"> ${data[i].text} </div>
+                </td>    
                 </tr>
                 </div>`
+                }
             }
-        }
-        else location.replace("http://localhost:3000/");
+            else location.replace("http://localhost:3000/");
         })
-    .catch((err)=>{
-        console.log(err)
-        alert('Erro na recolha dos artigos!')
-    })
+        .catch((err) => {
+            console.log(err)
+            alert('Erro na recolha dos artigos!')
+        })
 }
 
-function authCheck(){
-    if(localStorage.getItem("token")){
+function validaID() {
+    if (document.getElementById("iduser").value != "" && document.getElementById("iduser").value != null &&
+        document.getElementById("iduser1").value != "" && document.getElementById("iduser1").value != null &&
+        document.getElementById("iduser").value == document.getElementById("iduser1").value) {
+        return true;
+    }
+    else {
+        alert("Introduza os dados do artigo corretamente");
+        return false;
+    }
+}
+async function newLevel() {
+    if (validaID) {
         const options = {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-type': 'application/json',
                 'authorization': localStorage.getItem("token")
             },
-            body: JSON.stringify()
+            body: JSON.stringify({
+                iduser: document.getElementById("iduser").value
+            })
         }
+        await fetch('http://localhost:3000/api/admin/newLevel', options)
+            .then((res) => {
+                if (res.status == 200) {
+                    document.getElementById("iduser").value = ""
+                    document.getElementById("iduser1").value = ""
+                }
 
-        fetch('http://localhost:3000/api/admin/getAuth', options)
-        .then((res) => {
-            if(res.status===200){
-                return res.json()
-            }
-            else{
-                localStorage.removeItem("token");
-                return null
-            }
-        })
-        .then((res)=>{
-            if(res){
-            console.log(res);
-            switch (res.level) {
-                case 'regular':
-                   
-                    break;
-                case 'admin':
-                    
-                    break;
-            }
-        }else return;
-        })
-        .catch((error) => console.log(error));
-    }else{
-        alert("asd")
+            })
+            .catch((error) => console.log(error));
+    }
+}
+function validaAtArtigo() {
+    if (
+        document.getElementById("Atitle").value != "" && document.getElementById("Atitle").value != null &&
+        document.getElementById("Aimagem").value != "" && document.getElementById("Aimagem").value != null &&
+        document.getElementById("Atext").value != "" && document.getElementById("Atext").value != null &&
+        document.getElementById("idarticle").value != "" && document.getElementById("idarticle").value != null &&
+        document.getElementById("idarticle1").value != "" && document.getElementById("idarticle1").value != null &&
+        document.getElementById("idarticle").value == document.getElementById("idarticle1").value) {
+        return true;
+    }
+    else {
+        alert("Introduza os dados do artigo corretamente");
+        return false;
+    }
+}
+async function atArticle(){
+    if(validaAtArtigo){
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'authorization': localStorage.getItem("token")
+            },
+            body: JSON.stringify({
+                idarticle: document.getElementById("idarticle").value,
+                title: document.getElementById("Atitle").value,
+                text: document.getElementById("Atext").value,
+                imagem: document.getElementById("Aimagem").value
+
+            })
+        }
+        await fetch('http://localhost:3000/api/admin/atArticle', options)
+            .then((res) => {
+                if (res.status == 200) {
+                    document.getElementById("idarticle").value = ""
+                    document.getElementById("idarticle1").value = ""
+                    document.getElementById("Atitle").value = ""
+                    document.getElementById("Atext").value = ""
+                    document.getElementById("Aimagem").value = ""
+
+                }
+            })
+            .catch((error) => console.log(error));
     }
 }

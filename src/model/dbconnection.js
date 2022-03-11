@@ -1,5 +1,5 @@
 const mysql = require("mysql2");
-require('dotenv').config({path: '.env'})
+require('dotenv').config({ path: '.env' })
 
 const dbconnection = mysql.createConnection({
     host: process.env._HOST,
@@ -9,13 +9,13 @@ const dbconnection = mysql.createConnection({
     port: process.env._PORT
 })
 
-dbconnection.connect(function(err){
-    if(err){
+dbconnection.connect(function (err) {
+    if (err) {
         console.log("Nao foi possivel ligar a base de dados!")
 
-    }else{
+    } else {
         console.log('Connected to DataBase: ' + process.env._DATABASE);
     }
 })
 
-module.exports=dbconnection;
+module.exports = dbconnection;

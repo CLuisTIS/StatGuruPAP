@@ -12,9 +12,13 @@
     <!-- Bibliotecas BootStrap 5 -->
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"> </script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -31,44 +35,50 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
 
- 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-   
-        <link rel="stylesheet" type="text/css" href="http://localhost:3000/files/styles/controlo.css">
 
-        <link rel="stylesheet" type="text/css" href="http://localhost:3000/files/styles/particles.css">
-    
-        <script src="http://localhost:3000/files/controllers/navFoot.js"></script>
-        <script src="http://localhost:3000/files/controllers/control.js"></script>
-    
-        <script src="http://localhost:3000/files/controllers/particles.js"></script>
-        <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    
-                
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="http://localhost:3000/files/styles/controlo.css">
+
+    <link rel="stylesheet" type="text/css" href="http://localhost:3000/files/styles/particles.css">
+
+    <script src="http://localhost:3000/files/controllers/navFoot.js"></script>
+    <script src="http://localhost:3000/files/controllers/control.js"></script>
+
+    <script src="http://localhost:3000/files/controllers/particles.js"></script>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+
     <title>StatGuru - Control</title>
 
 </head>
 
-    <body onload="renderNav(); renderFooter(); ">
-        <!-- Adicionado o background com a animação-->
-        <section id="particles-js"></section>
+<body onload="renderNav(); renderFooter(); ">
+    <!-- Adicionado o background com a animação-->
+    <section id="particles-js"></section>
 
-        <!-- Adicionar a navbar-->
-        <div id="navbar"></div>
-        
-        <div class="container" id="display">
-            <p align = "center">
-        
-                <button class="btn-lg" type="button" id="btnAcc" class="btn" onclick="fillAdmins()" style="color: #f55139;">Add new Admin Account</button>
-                <button class="btn-lg" type="button " id="btnNews" class="btn" onclick="fillArticles()" style="color: #f55139;">Add new Article</button>
-                <button class="btn-lg" type="button" id="btnUsers" class="btn" onclick="fillUsers()"  style="color: #f55139;">User List</button>
+    <!-- Adicionar a navbar-->
+    <div id="navbar"></div>
 
-            </p> 
+    <div class="container" id="display">
 
-            <div class="container" id="content" ></div>
+        <p align="center">
 
-            <div class="container" id="acc" style="display: none;">
-          
+            <button class="btn-lg" type="button" id="btnAcc" class="btn" onclick="fillAdmins()"
+                style="color: #f55139;">Administradores</button>
+            <button class="btn-lg" type="button " id="btnNews" class="btn" onclick="fillArticles()"
+                style="color: #f55139;">Artigos</button>
+            <button class="btn-lg" type="button" id="btnUsers" class="btn" onclick="fillUsers()"
+                style="color: #f55139;">Lista de Utilizadores</button>
+
+        </p>
+
+        <div class="container" id="content"></div>
+
+        <div class="container" id="acc" style="display: none;">
+
+            <p class="text-center h5" scope="col" style="color: #f55139;">Adicione um Administrador</p>
+            <div class="mb-3">
 
                 <div class="mb-3">
                     <label for="email" class="form-label h5" style="color: #f55139;">Email</label>
@@ -89,59 +99,111 @@
                     Já existe uma conta com este email!
                 </div>
 
-                <button class="btn-lg h5" type="button" id="btnNewAcc" class="btn" onclick="register()" style="color: #f55139;">Add Admin Account</button>
+                <button class="btn-lg h5" type="button" id="btnNewAcc" class="btn" onclick="register();"
+                    style="color: #f55139;">Adicionar Novo Administrador</button>
 
-                <p class="text-center h5" scope="col" style="color: #f55139;">Admin List</p>
+                <p class="text-center h5" scope="col" style="color: #f55139;">Insira Nivel de Administrador num
+                    Utilizador</p>
+
+                <div class="mb-3">
+
+                    <label for="iduser" class="form-label h5" style="color: #f55139;">ID do Utilizador </label>
+                    <input class="form-control" id="iduser" placeholder="Insira aqui o ID do utilizador">
+                    <input class="form-control" id="iduser1" style="margin-top:10px"
+                        placeholder="Verifique o ID do utilizador">
+
+                </div>
+                <div id="msgErro1" style="display: none; color: red;">
+                    Já existe uma conta com este email!
+                </div>
+                <button class="btn-lg h5" type="button" id="btnNewLevel" class="btn" onclick="newLevel();fillAdmins()"
+                    style="color: #f55139;margin-top:10px">Inserir Nivel de Admin</button>
+
+                <p class="text-center h5" scope="col" style="color: #f55139;">Lista de Admins</p>
 
                 <div class="table-responsive-md mx-auto mt-3">
                     <table class="table text-center align-middle mt-2">
                         <thead>
-                            <tr> 
+                            <tr>
                                 <th class="text-center h5" scope="col" style="color: #f55139;">Admin ID</th>
                                 <th class="text-center h5" scope="col" style="color: #f55139;">Admin email</th>
                             </tr>
                         </thead>
 
                         <tbody style="color: white;" id="listaAdmins">
-                            
+
                         </tbody>
                     </table>
                 </div>
 
             </div>
-
             
-            <div class="container" id="news" style="display: none; ">
-               
- 
-                    <div class="mb-3">
-                        <label for="title" class="form-label h5" style="color: #f55139;">Article</label>
-                        <input class="form-control" id="title" placeholder="Insert title">
-                    </div>
-                    <div class="mb-3">
-                        <label for="title" class="form-label h5" style="color: #f55139;">Image URL</label>
-                        <input class="form-control" id="imagem" placeholder="Insert URL">
-                    </div>
+        </div>
 
-                    <div class="mb-3">
-                        <label for="text" class="form-label h5" style="color: #f55139;">Insert </label>
-                        <textarea class="form-control" id="text" rows="3" placeholder="Insert text"></textarea>
-                    </div>
-                    
-                    
-                    <button class="btn-lg h5" type="button" id="btnNewArticle" class="btn" onclick="articles();" style="color: #f55139;">Send Article</button>
-             
-                    <p class="text-center h5" scope="col" style="color: #f55139;">Articles List</p>
+        <div class="container" id="news" style="display: none; ">
 
-                    <div class="table-responsive-md mx-auto mt-3">
-                        <table class="table text-center align-middle mt-2">
-                          
-    
-                            <tbody style="color: white;" id="listaArticles">
-                                
-                            
-                        </table>
-                    </div>
+            <p class="text-center h5" scope="col" style="color: #f55139;">Adicione um Artigo</p>
+            <div class="mb-3">
+
+                <div class="mb-3">
+                    <label for="title" class="form-label h5" style="color: #f55139;">Título do Artigo</label>
+                    <input class="form-control" id="title" placeholder="Insira aqui o título">
+                </div>
+                <div class="mb-3">
+                    <label for="imagem" class="form-label h5" style="color: #f55139;">URL da Imagem </label>
+                    <input class="form-control" id="imagem" placeholder="Insira aqui o URL">
+                </div>
+
+                <div class="mb-3">
+                    <label for="text" class="form-label h5" style="color: #f55139;">Texto</label>
+                    <textarea class="form-control" id="text" rows="3" placeholder="Insira aqui o texto"></textarea>
+                </div>
+
+
+                <button class="btn-lg h5" type="button" id="btnNewArticle" class="btn" onclick="articles();"
+                    style="color: #f55139;">Enviar Artigo</button>
+
+                <p class="text-center h5" scope="col" style="color: #f55139;">Atualize um Artigo</p>
+                <div class="mb-3">
+
+                    <label for="idarticle" class="form-label h5" style="color: #f55139;">ID do Artigo </label>
+                    <input class="form-control" id="idarticle" placeholder="Insira aqui o ID do artigo">
+                    <input class="form-control" id="idarticle1" style="margin-top:10px"
+                        placeholder="Verifique o ID do artigo">
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="Atitle" class="form-label h5" style="color: #f55139;">Título do Artigo</label>
+                    <input class="form-control" id="Atitle" placeholder="Insira aqui o título">
+                </div>
+
+                <div class="mb-3">
+                    <label for="Aimagem" class="form-label h5" style="color: #f55139;">URL da Imagem </label>
+                    <input class="form-control" id="Aimagem" placeholder="Insira aqui o URL">
+                </div>
+
+                <div class="mb-3">
+                    <label for="Atext" class="form-label h5" style="color: #f55139;">Texto</label>
+                    <textarea class="form-control" id="Atext" rows="3" placeholder="Insira aqui o texto"></textarea>
+                </div>
+
+
+
+                <button class="btn-lg h5" type="button" id="btnAtArticle" class="btn"
+                    onclick="atArticle(); fillArticles(); " style="color: #f55139;">Atualize Artigo</button>
+
+                <p class="text-center h5" scope="col" style="color: #f55139;">Lista de Artigos</p>
+
+                <div class="table-responsive-md mx-auto mt-3">
+                    <table class="table text-center align-middle mt-2">
+
+
+                        <tbody style="color: white;" id="listaArticles">
+
+
+                    </table>
+                </div>
 
             </div>
 
@@ -152,43 +214,44 @@
                     <table class="table text-center align-middle mt-2">
                         <thead>
                             <tr>
-                                <th class="text-center h5" scope="col" style="color: #f55139;">User ID</th>
-                                <th class="text-center h5" scope="col" style="color: #f55139;">User email</th>
+                                <th class="text-center h5" scope="col" style="color: #f55139;">ID do Utilizador</th>
+                                <th class="text-center h5" scope="col" style="color: #f55139;">Email</th>
+                                <th class="text-center h5" scope="col" style="color: #f55139;">Nivel</th>
                             </tr>
                         </thead>
 
                         <tbody style="color: white;" id="listaUsers">
-                            
+
                         </tbody>
                     </table>
                 </div>
             </div>
 
         </div>
-            <!-- Adicionar o footer-->
-            <footer id="footer" style="margin-top: 40px;"></footer>
+        <!-- Adicionar o footer-->
+        <footer id="footer" style="margin-top: 40px;"></footer>
 
-            <!-- Scripts necessários para a animação de background-->
-            <script type = "text/javascript" src="http://localhost:3000/files/controllers/particles.js"></script>
-            
-            <script>   
-                            
-                            let btnNews = document.querySelector('#btnNews');
-                            let btnAcc = document.querySelector('#btnAcc');
-                            let btnUsers = document.querySelector('#btnUsers');
-                            let content = document.querySelector('#content');
+        <!-- Scripts necessários para a animação de background-->
+        <script type="text/javascript" src="http://localhost:3000/files/controllers/particles.js"></script>
 
-                            btnNews.addEventListener('click', () => {
-                                document.getElementById("content").innerHTML = document.getElementById("news").innerHTML
-                            });
-                            btnAcc.addEventListener('click', () => {
-                                document.getElementById("content").innerHTML = document.getElementById("acc").innerHTML
-                            });
-                            btnUsers.addEventListener('click', () => {
-                                document.getElementById("content").innerHTML = document.getElementById("users").innerHTML
-                            });
-                        
-            </script>
-    </body>
+        <script>
+
+            let btnNews = document.querySelector('#btnNews');
+            let btnAcc = document.querySelector('#btnAcc');
+            let btnUsers = document.querySelector('#btnUsers');
+            let content = document.querySelector('#content');
+
+            btnNews.addEventListener('click', () => {
+                document.getElementById("content").innerHTML = document.getElementById("news").innerHTML
+            });
+            btnAcc.addEventListener('click', () => {
+                document.getElementById("content").innerHTML = document.getElementById("acc").innerHTML
+            });
+            btnUsers.addEventListener('click', () => {
+                document.getElementById("content").innerHTML = document.getElementById("users").innerHTML
+            });
+
+        </script>
+</body>
 
 </html>

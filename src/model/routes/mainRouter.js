@@ -13,23 +13,26 @@ router.use('/api', require('./apiRouter'));
 
 
 
-router.get('/',(req, res) =>{
+router.get('/', (req, res) => {
     res.sendFile(path.join(srcLocation, './view/html/home.html'));
-}); 
+});
+router.get('/home', (req, res) => {
+    res.sendFile(path.join(srcLocation, './view/html/home1.html'));
+});
 
-router.get('/aboutus', function(req, res) {
+router.get('/Sobrenos', function (req, res) {
     res.sendFile(path.join(srcLocation, './view/html/aboutus.html'));
 });
 
-router.get('/control', function(req, res) {
+router.get('/Administracao', function (req, res) {
     res.sendFile(path.join(srcLocation, './view/html/controlo.html'));
 });
 
-router.get('/news', function(req, res) {
+router.get('/Artigos', function (req, res) {
     res.sendFile(path.join(srcLocation, './view/html/news.html'));
 });
 
-router.get('/loginsignup', function(req, res) {
+router.get('/Loginsignup', function (req, res) {
     res.sendFile(path.join(srcLocation, './view/html/loginsignup.html'));
 });
 

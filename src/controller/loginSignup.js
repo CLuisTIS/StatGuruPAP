@@ -1,4 +1,4 @@
-async function login(){
+async function login() {
     const options = {
         method: 'POST',
         headers: {
@@ -11,42 +11,42 @@ async function login(){
     }
 
     await fetch('http://localhost:3000/api/open/login', options)
-    .then((res) => {
-        if(res.status===406){
-          alert(res.json().msg)
-          return
-        }       
-        let token = res.headers.get("Authorization");
-        localStorage.setItem("token", token);
-      })
-      .catch((error) => console.log(error));
+        .then((res) => {
+            if (res.status === 406) {
+                alert(res.json().msg)
+                return
+            }
+            let token = res.headers.get("Authorization");
+            localStorage.setItem("token", token);
+        })
+        .catch((error) => console.log(error));
 
-      if(localStorage.getItem("token")) location.href = "http://localhost:3000/news";
+    if (localStorage.getItem("token")) location.href = "http://localhost:3000/home";
 }
 
-function validaLogin(){
-    if(document.getElementById("email").value != "" && document.getElementById("email").value != null &&
-       document.getElementById("password").value != "" && document.getElementById("password").value != null)
-       return true;
+function validaLogin() {
+    if (document.getElementById("email").value != "" && document.getElementById("email").value != null &&
+        document.getElementById("password").value != "" && document.getElementById("password").value != null)
+        return true;
     else
         alert("introduza os dados de login corretamente");
-        return false;
+    return false;
 }
 
-function validaRegisto(){
-    if(document.getElementById("Remail").value != "" && document.getElementById("Remail").value != null &&
-       document.getElementById("Rpassword").value != "" && document.getElementById("Rpassword").value != null &&
-       document.getElementById("RpasswordConfirmacao").value != "" && document.getElementById("RpasswordConfirmacao").value != null &&
-       document.getElementById("Rpassword").value == document.getElementById("RpasswordConfirmacao").value)
-       return true;
+function validaRegisto() {
+    if (document.getElementById("Remail").value != "" && document.getElementById("Remail").value != null &&
+        document.getElementById("Rpassword").value != "" && document.getElementById("Rpassword").value != null &&
+        document.getElementById("RpasswordConfirmacao").value != "" && document.getElementById("RpasswordConfirmacao").value != null &&
+        document.getElementById("Rpassword").value == document.getElementById("RpasswordConfirmacao").value)
+        return true;
     else
         alert("introduza os dados de registo corretamente");
-        return false;
+    return false;
 }
 
-async function register(){
+async function register() {
 
-    if(validaRegisto()){
+    if (validaRegisto()) {
         const options = {
             method: 'POST',
             headers: {
@@ -55,24 +55,24 @@ async function register(){
             body: JSON.stringify({
                 email: document.getElementById("Remail").value,
                 password: document.getElementById("Rpassword").value,
-                level:"regular"
+                level: "regular"
             })
         }
-    
+
         await fetch('http://localhost:3000/api/open/register', options)
-        .then((res) => {
-            if(res.status == 200)
-            location.reload();
-            else{
-               
-                document.getElementById("Remail").value = ""
-                document.getElementById("Rpassword").value = ""
-                document.getElementById("RpasswordConfirmacao").value = ""
-                document.getElementById("msgErro").style.display = "block" 
-            }
-          })
-          .catch((error) => console.log(error));
-          
-    }      
+            .then((res) => {
+                if (res.status == 200)
+                    location.reload();
+                else {
+
+                    document.getElementById("Remail").value = ""
+                    document.getElementById("Rpassword").value = ""
+                    document.getElementById("RpasswordConfirmacao").value = ""
+                    document.getElementById("msgErro").style.display = "block"
+                }
+            })
+            .catch((error) => console.log(error));
+
+    }
 }
 
