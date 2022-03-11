@@ -22,12 +22,12 @@ USE `dbpap` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dbpap`.`articles` (
   `idarticle` INT NOT NULL AUTO_INCREMENT,
-  `title` VARCHAR(75) NOT NULL,
-  `text` VARCHAR(1000) NOT NULL,
-  `img` VARCHAR(45) NULL DEFAULT NULL,
+  `title` VARCHAR(200) NOT NULL,
+  `text` VARCHAR(7500) NOT NULL,
+  `imagem` VARCHAR(7500) NOT NULL,
   PRIMARY KEY (`idarticle`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 18
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -37,15 +37,15 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dbpap`.`user` (
   `iduser` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(500) NOT NULL,
   `public_key` VARCHAR(500) NULL DEFAULT NULL,
   `private_key` VARCHAR(500) NULL DEFAULT NULL,
   `level` ENUM('admin', 'regular') NOT NULL,
   PRIMARY KEY (`iduser`),
-  UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE)
+  UNIQUE INDEX `username_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 38
+AUTO_INCREMENT = 52
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 

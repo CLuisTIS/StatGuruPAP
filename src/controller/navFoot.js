@@ -70,7 +70,7 @@ function renderNavNaoAutenticado() {
                     <a class="nav-link fs-4" href="http://localhost:3000/Sobrenos">Sobre Nós</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-4" href="http://localhost:3000/Loginsignup">Login / Sign Up</a>
+                        <a class="nav-link fs-4" href="http://localhost:3000/Loginsignup">Login / Registe-se</a>
                     </li>
                 </ul>
             </div>
