@@ -67,10 +67,10 @@ function renderNavNaoAutenticado() {
                     <a class="nav-link fs-4" href="http://localhost:3000/">Resultados em Direto e Estatísticas</a>
                     </li>
                     <li class="nav-item"  style="margin-right:10px">
-                    <a class="nav-link fs-4" href="http://localhost:3000/aboutus">Sobre Nós</a>
+                    <a class="nav-link fs-4" href="http://localhost:3000/Sobrenos">Sobre Nós</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-4" href="http://localhost:3000/loginsignup">Login / Sign Up</a>
+                        <a class="nav-link fs-4" href="http://localhost:3000/Loginsignup">Login / Sign Up</a>
                     </li>
                 </ul>
             </div>
@@ -99,7 +99,7 @@ function renderNavRegular() {
                     <a class="nav-link fs-4" href="http://localhost:3000/news">Artigos</a>
                     </li>
                     <li class="nav-item"  style="margin-right:10px">
-                    <a class="nav-link fs-4" href="http://localhost:3000/aboutus">Sobre Nós</a>
+                    <a class="nav-link fs-4" href="http://localhost:3000/Sobrenos">Sobre Nós</a>
                     </li>
                     <li class="nav-item"  cursor: pointer" onclick="logout()">
                         <a class="nav-link fs-4">Logout</a>
@@ -124,15 +124,18 @@ function renderNavAdmin() {
             </button>
 
             <div class="collapse navbar-collapse" style="justify-content: end !important;" id="navbarNav">
-                <ul class="navbar-nav" style="cursor: pointer; ">
+                <ul class="navbar-nav" style="cursor: pointer; ">  
+                    <li class="nav-item"  style="margin-right:10px">
+                    <a class="nav-link fs-4" href="http://localhost:3000/Administracao">Dashboard</a>
+                    </li>
+                    <li class="nav-item"  style="margin-right:10px">
+                    <a class="nav-link fs-4" href="http://localhost:3000/Artigos">Artigos</a>
+                    </li>
                     <li class="nav-item" style="margin-right:10px">
                     <a class="nav-link fs-4" href="http://localhost:3000/home">Resultados em Direto e Estatísticas</a>
                     </li>
                     <li class="nav-item"  style="margin-right:10px">
-                    <a class="nav-link fs-4" href="http://localhost:3000/news">Artigos</a>
-                    </li>
-                    <li class="nav-item"  style="margin-right:10px">
-                    <a class="nav-link fs-4" href="http://localhost:3000/control">Dashboard</a>
+                    <a class="nav-link fs-4" href="http://localhost:3000/Sobrenos">Sobre Nós</a>
                     </li>
                     <li class="nav-item" style:" cursor: pointer" onclick="logout()">
                         <a class="nav-link fs-4">Logout</a>
