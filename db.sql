@@ -52,7 +52,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 INSERT INTO `user` VALUES (1,'carlosluistis@outlook.pt','$2a$04$7wHUYMjV8giecEZ87LhF0OHWB0Cw5kQ2Vygjtgiezcs0efZ8MhJ6.','jbb83dpvm27','ssq8axgi4gc7','admin'),
 (2,'carlao@outlook.pt','$2a$10$OO0EOR0nOv09z8SOikEdiuq2CLzjZC2MsZtw5htgFcFkU5qJYPtEa','rnlkesbzwhr14','jbapr2drlc14','regular'),
-(3,'carlosluis@outlook.pt','$2a$10$OO0EOR0nOv09z8SOikEdiuq2CLzjZC2MsZtw5htgFcFkU5qJYPtEa','rnlkesbzwhr14','jbapr2drlc14','regular');
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
