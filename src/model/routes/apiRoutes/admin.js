@@ -1,8 +1,7 @@
-const srcLocation = require("../../../srcLocation");
-const path = require("path");
+
 const express = require("express");
 const router = express.Router();
-const userAuthentication = require("../../userAuthentication");
+
 
 const bcryptjs = require("bcryptjs");
 const dbConnection = require("../../dbconnection");
@@ -31,7 +30,7 @@ router.get('/users', (req, res) => {
         })
 });
 
-router.get('/articles', (req, res) => {
+router.get('/Sarticles', (req, res) => {
     dbConnection.query(`SELECT idArticle, title, text, imagem FROM articles`,
         (err, result) => {
             if (err) {
@@ -43,8 +42,10 @@ router.get('/articles', (req, res) => {
 });
 
 router.post('/articles', (req, res) => {
+
     dbConnection.query("INSERT INTO articles (title, text, imagem) VALUES (?,?,?)",
         [req.body.title, req.body.text, req.body.imagem],
+        
         (err, result) => {
             if (err) {
                 console.log(err);
@@ -74,7 +75,7 @@ router.post('/atArticle', (req, res) => {
         (err, result) => {
             if (err) {
                 console.log(err);
-                res.status(406).send("Erro na mudança de nivel!")
+                res.status(406).send("Erro na atualização do artigo!")
             } else {
                 res.status(200).send(result)
             }

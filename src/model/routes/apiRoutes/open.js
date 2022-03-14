@@ -1,6 +1,4 @@
-const srcLocation = require("../../../srcLocation");
-const fs = require("fs");
-const path = require("path");
+
 const express = require("express");
 const router = express.Router();
 const userAuthentication = require("../../userAuthentication");

@@ -58,7 +58,7 @@ function fillArticles() {
                         <tr>
                         <td>
                         <p class="h5 container aligns-items-center justify-content-center" style="margin-top:25px;text-align: center;"> ${data[i].title} </p>
-                        <div class="aligns-items-center justify-content-center "> <img style="width:750px"src="${data[i].imagem}"></img></div>
+                        <div class="aligns-items-center justify-content-center "> <img style="width:350px"src="${data[i].imagem}"></img></div>
                         <div class="h6 aligns-items-center justify-content-center " style="margin-top:25px; width:250px;"> ${data[i].text} </div>
                         </td>
                         </tr>

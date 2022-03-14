@@ -148,7 +148,7 @@ function fillArticles() {
             'authorization': localStorage.getItem("token")
         }
     }
-    fetch('http://localhost:3000/api/admin/articles', options)
+    fetch('http://localhost:3000/api/admin/Sarticles', options)
         .then((res) => {
             if (res.status = 200) return res.json()
             return null
@@ -189,7 +189,7 @@ function validaID() {
     }
 }
 async function newLevel() {
-    if (validaID) {
+    if (validaID()) {
         const options = {
             method: 'POST',
             headers: {
@@ -227,7 +227,7 @@ function validaAtArtigo() {
     }
 }
 async function atArticle() {
-    if (validaAtArtigo) {
+    if (validaAtArtigo()) {
         const options = {
             method: 'POST',
             headers: {
@@ -256,6 +256,7 @@ async function atArticle() {
             .catch((error) => console.log(error));
     }
 }
+
 function Acesso() {
     if (localStorage.getItem("token")) {
         const options = {

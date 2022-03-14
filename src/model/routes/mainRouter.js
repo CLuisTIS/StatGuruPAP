@@ -5,8 +5,6 @@ const express = require('express');
 
 const router = express.Router();
 
-const userAuthentication = require("../userAuthentication");
-
 router.use('/files', require('./fileRouter'));
 
 router.use('/api', require('./apiRouter'));

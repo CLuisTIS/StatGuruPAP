@@ -15,7 +15,6 @@ exports.getLevel = (req, res) => {
                 if (!result) res.status(401).json({
                     "msg": 'Utlizador não encontrado'
                 });
-
                 jwt.verify(req.headers.authorization, result[0].private_key, (error) => {
                     if (error) res.status(401).json({
                         "msg": "Token inválido"
@@ -23,7 +22,8 @@ exports.getLevel = (req, res) => {
                     else {
                         res.status(200).json({
                             "msg": "Sessao valida",
-                            "level": result[0].level
+                            "level": result[0].level,
+                            "iduser": result[0].iduser
                         });
                     }
                 })
@@ -57,8 +57,6 @@ exports.login = (req, res) => {
                         issuer: 'StatGuru'
                     }
                     let token = jwt.sign(payload, result[0].private_key, options)
-
-
                     res.header('Authorization', token).json({
                         msg: "logado com sucesso"
                     })

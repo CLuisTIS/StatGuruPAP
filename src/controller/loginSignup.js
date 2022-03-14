@@ -1,3 +1,12 @@
+function validaLogin() {
+    if (document.getElementById("email").value != "" && document.getElementById("email").value != null &&
+        document.getElementById("password").value != "" && document.getElementById("password").value != null)
+        return true;
+    else
+        alert("introduza os dados de login corretamente");
+    return false;
+}
+
 async function login() {
     const options = {
         method: 'POST',
@@ -18,20 +27,14 @@ async function login() {
             }
             let token = res.headers.get("Authorization");
             localStorage.setItem("token", token);
+            localStorage.setItem("id",iduser)
         })
         .catch((error) => console.log(error));
 
     if (localStorage.getItem("token")) location.href = "http://localhost:3000/home";
 }
 
-function validaLogin() {
-    if (document.getElementById("email").value != "" && document.getElementById("email").value != null &&
-        document.getElementById("password").value != "" && document.getElementById("password").value != null)
-        return true;
-    else
-        alert("introduza os dados de login corretamente");
-    return false;
-}
+
 
 function validaRegisto() {
     if (document.getElementById("Remail").value != "" && document.getElementById("Remail").value != null &&
